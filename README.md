@@ -68,3 +68,7 @@ npm run serve
 ```
 
 This serves the `dist` directory on port `4173`.
+
+## License
+
+This project is released under the [MIT License](LICENSE).
