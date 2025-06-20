@@ -48,7 +48,23 @@ export default tseslint.config({
     // other rules...
     // Enable its recommended typescript rules
     ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
+  ...reactDom.configs.recommended.rules,
   },
 })
 ```
+
+## Build and Serve
+
+Run the build command to create the production output:
+
+```bash
+npm run build
+```
+
+Afterwards you can preview the built site locally:
+
+```bash
+npm run serve
+```
+
+This serves the `dist` directory on port `4173`.
