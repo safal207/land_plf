@@ -52,3 +52,16 @@ export default tseslint.config({
   },
 })
 ```
+
+## Running locally
+
+Use the following steps to build the project and serve the production bundle:
+
+```bash
+cd land_plf
+npm install
+npm run build
+npx serve -s dist -l 4173
+```
+
+`npx serve` is required because Vite's dev server is not supported in Codex.
