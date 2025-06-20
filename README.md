@@ -52,3 +52,14 @@ export default tseslint.config({
   },
 })
 ```
+
+## Development
+
+Install dependencies and start the dev server:
+
+```bash
+npm install
+npm run dev
+```
+
+The project uses Tailwind CSS. Configuration files `tailwind.config.cjs` and `postcss.config.cjs` are located in the project root so Vite can discover them automatically.
