@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
+// ⚠️ Укажи имя репозитория после слэша
 export default defineConfig({
+  base: '/land_plf/',
   plugins: [react()],
 })
