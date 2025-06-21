@@ -1,5 +1,6 @@
 module.exports = {
   plugins: {
+<<<<<<< HEAD
     '@tailwindcss/postcss': {}
   }
 }
