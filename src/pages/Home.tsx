@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white min-h-screen">
+    <div className="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white min-h-screen overflow-x-hidden">
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center py-20 px-6">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 max-w-4xl">
@@ -85,17 +85,17 @@ export default function Home() {
             Оставь email и получи первый гайд: <br />
             <span className="italic text-indigo-300 font-medium">"Как слушать свои внутренние голоса"</span>
           </p>
-          <form className="flex flex-col sm:flex-row justify-center gap-4">
+          <form className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
             <input
               type="email"
               placeholder="Твой email"
-              className="flex-1 px-6 py-4 rounded-lg text-black bg-white focus:outline-none focus:ring-2 focus:ring-pink-500 text-lg"
+              className="flex-1 px-6 py-4 rounded-lg text-black bg-white focus:outline-none focus:ring-2 focus:ring-pink-500 text-lg shadow-lg"
             />
             <button
               type="submit"
-              className="bg-gradient-to-r from-pink-500 to-indigo-500 hover:from-pink-600 hover:to-indigo-600 text-white px-8 py-4 rounded-lg font-bold transition-all duration-200 text-lg"
+              className="bg-gradient-to-r from-pink-500 to-indigo-500 hover:from-pink-600 hover:to-indigo-600 text-white px-8 py-4 rounded-lg font-bold transition-all duration-200 text-lg shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
             >
-              Хочу начать путь
+              Начать путь
             </button>
           </form>
         </div>
