@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 
-// ВАЖНО: импорт Tailwind стилей
+// ВАЖНО: импорт глобальных стилей
+import './index.css'
 import './styles/tailwind.css' // Здесь должны быть @tailwind base и т.д.
 // (если ты всё же используешь index.css, можно добавить и его сюда)
 
