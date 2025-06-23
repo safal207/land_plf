@@ -31,5 +31,11 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
     "vite": "^6.3.5"
+  },
+  "license": "MIT",
+  "description": "Landing page built with React, TypeScript, Vite, and Tailwind CSS.",
+  "repository": "https://github.com/safal207/land_plf",
+  "engines": {
+    "node": ">=18"
   }
 }
