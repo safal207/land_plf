@@ -1,12 +1,12 @@
 // 📁 src/LiminalApp.ts
-// Главный класс приложения LIMINAL - объединяет все компоненты
+// Главный класс приложения LIMINAL с порталом в Noosphere
 
 import { ParticleSystem } from './components/ParticleSystem';
 import { QuantumClock } from './components/QuantumClock';
 import { HeartControls } from './components/HeartControls';
 import { EmailForm } from './components/EmailForm';
 import { DOMHelpers, TimeHelpers } from './utils/helpers';
-import { SELECTORS, ANIMATION_CONFIG } from './utils/constants';
+import { SELECTORS, ANIMATION_CONFIG, MATRIX_CHARS } from './utils/constants';
 
 /**
  * Главный класс приложения LIMINAL
@@ -111,6 +111,9 @@ export class LiminalApp {
     await this.initHeartControls();
     await this.initScrollAnimations();
     
+    // 4. НОВОЕ: Портал в Noosphere City 🌌
+    await this.initPortalToNoosphere();
+    
     console.log('✅ LiminalApp: All components initialized');
   }
 
@@ -181,6 +184,142 @@ export class LiminalApp {
   }
 
   /**
+   * НОВОЕ: Инициализировать портал в Noosphere City
+   */
+  private async initPortalToNoosphere(): Promise<void> {
+    try {
+      this.createPortalButton();
+      console.log('✅ Portal to Noosphere City initialized');
+    } catch (error) {
+      console.warn('⚠️ Failed to initialize Portal:', error);
+    }
+  }
+
+  /**
+   * НОВОЕ: Создать кнопку портала
+   */
+  private createPortalButton(): void {
+    // Создаем контейнер портала
+    const portalContainer = DOMHelpers.createElement('div', 'portal-container');
+    
+    DOMHelpers.addStyles(portalContainer, {
+      position: 'fixed',
+      bottom: '20px',
+      left: '20px',
+      zIndex: '9999',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: '15px'
+    });
+
+    // Создаем кнопку портала
+    const portalButton = DOMHelpers.createElement('button', 'portal-button');
+    portalButton.innerHTML = `
+      <div style="font-size: 2rem; margin-bottom: 5px;">🌆</div>
+      <div style="font-weight: bold; color: #00ffee;">ENTER NOOSPHERE</div>
+      <div style="font-size: 0.8rem; color: #c6fff7;">City of Future</div>
+    `;
+
+    DOMHelpers.addStyles(portalButton, {
+      background: 'linear-gradient(135deg, rgba(0, 255, 238, 0.1), rgba(255, 89, 165, 0.1))',
+      border: '2px solid rgba(0, 255, 238, 0.3)',
+      borderRadius: '15px',
+      padding: '20px',
+      color: '#00ffee',
+      fontFamily: 'Orbitron, sans-serif',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+      backdropFilter: 'blur(10px)',
+      textAlign: 'center',
+      minWidth: '180px'
+    });
+
+    // Добавить hover эффект
+    portalButton.addEventListener('mouseenter', () => {
+      portalButton.style.borderColor = '#00ffee';
+      portalButton.style.boxShadow = '0 0 30px rgba(0, 255, 238, 0.4)';
+      portalButton.style.transform = 'translateY(-5px)';
+    });
+
+    portalButton.addEventListener('mouseleave', () => {
+      portalButton.style.borderColor = 'rgba(0, 255, 238, 0.3)';
+      portalButton.style.boxShadow = 'none';
+      portalButton.style.transform = 'translateY(0)';
+    });
+
+    // Добавить клик для перехода
+    portalButton.addEventListener('click', () => {
+      this.activatePortalTransition();
+    });
+
+    portalContainer.appendChild(portalButton);
+    document.body.appendChild(portalContainer);
+  }
+
+  /**
+   * НОВОЕ: Активировать переход через портал
+   */
+  private activatePortalTransition(): void {
+    console.log('🌌 Activating portal to Noosphere City...');
+    
+    // Создать overlay эффект
+    const overlay = DOMHelpers.createElement('div', 'portal-overlay');
+    
+    DOMHelpers.addStyles(overlay, {
+      position: 'fixed',
+      top: '0',
+      left: '0',
+      width: '100%',
+      height: '100%',
+      background: 'radial-gradient(circle, transparent, #00ffee)',
+      zIndex: '99999',
+      opacity: '0',
+      transition: 'opacity 2s ease-in-out'
+    });
+
+    document.body.appendChild(overlay);
+
+    // Показать сообщение
+    const message = DOMHelpers.createElement('div', 'portal-message');
+    message.textContent = '🌌 Opening dimensional gateway to Noosphere City...';
+    
+    DOMHelpers.addStyles(message, {
+      position: 'fixed',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      background: 'rgba(0, 0, 0, 0.8)',
+      color: '#00ffee',
+      padding: '20px 40px',
+      borderRadius: '10px',
+      border: '1px solid #00ffee',
+      fontFamily: 'Orbitron, sans-serif',
+      fontSize: '1.2rem',
+      zIndex: '99998',
+      textAlign: 'center'
+    });
+
+    document.body.appendChild(message);
+
+    // Запустить последовательность перехода
+    setTimeout(() => {
+      overlay.style.opacity = '0.8';
+      message.textContent = '🚀 Initiating dimensional transfer...';
+    }, 1000);
+
+    setTimeout(() => {
+      overlay.style.opacity = '1';
+      message.textContent = '✨ Welcome to Noosphere City!';
+    }, 2500);
+
+    // Переход на сайт
+    setTimeout(() => {
+      window.location.href = 'https://safal207.github.io/noosphere-city/';
+    }, 3500);
+  }
+
+  /**
    * Инициализировать анимации при прокрутке
    */
   private async initScrollAnimations(): Promise<void> {
@@ -213,11 +352,9 @@ export class LiminalApp {
     const matrixContainer = DOMHelpers.getElement('#matrixRain');
     if (!matrixContainer) return;
 
-    const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-    
     const createMatrixChar = () => {
       const char = DOMHelpers.createElement('div', 'matrix-char');
-      char.textContent = chars[Math.floor(Math.random() * chars.length)];
+      char.textContent = MATRIX_CHARS[Math.floor(Math.random() * MATRIX_CHARS.length)];
       
       DOMHelpers.addStyles(char, {
         position: 'absolute',
@@ -317,6 +454,13 @@ export class LiminalApp {
         this.toggleParticles();
         console.log('✨ Particles toggled via hotkey');
       }
+
+      // НОВОЕ: Ctrl + N = Activate portal to Noosphere
+      if (e.ctrlKey && e.key.toLowerCase() === 'n') {
+        e.preventDefault();
+        this.activatePortalTransition();
+        console.log('🌌 Portal to Noosphere activated via hotkey');
+      }
       
       // Escape = Close eyes overlay
       if (e.key === 'Escape') {
@@ -393,9 +537,9 @@ export class LiminalApp {
    * Обработать ошибку инициализации
    */
   private handleInitializationError(error: any): void {
-    // Показать пользователю fallback интерфейс
     console.error('🚨 LiminalApp: Initialization failed:', error);
-
+    
+    // Показать пользователю fallback интерфейс
     const body = document.body;
     body.innerHTML = `
       <div style="
@@ -411,6 +555,7 @@ export class LiminalApp {
         <div>
           <h1>🚨 Initialization Error</h1>
           <p>Something went wrong while loading LIMINAL.</p>
+          <p>Error: ${error.message || 'Unknown error'}</p>
           <button onclick="location.reload()" style="
             padding: 10px 20px; 
             background: #00ffee; 
@@ -466,15 +611,19 @@ export class LiminalApp {
   private logWelcomeMessage(): void {
     console.log(`
     🌟 ====================================== 🌟
-         WELCOME TO LIMINAL v1.0
+         WELCOME TO LIMINAL v1.1
     ✨ Next-Gen AI Infrastructure Platform ✨
     
     🎮 Hotkeys:
     • Ctrl + H: Heart rain
     • Ctrl + P: Toggle particles
+    • Ctrl + N: Portal to Noosphere City 🌌
     • Escape: Close overlay
     
-    💖 Enjoy the experience!
+    🌌 NEW: Dimensional Portal Active!
+    Connect to Noosphere City for full experience
+    
+    💖 Enjoy the journey through dimensions!
     🌟 ====================================== 🌟
     `);
   }
