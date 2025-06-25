@@ -1,0 +1,99 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20250626005001
+Username: LIS\safal
+RunAs User: LIS\safal
+Configuration Name: 
+Machine: LIS (Microsoft Windows NT 10.0.26100.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command try { . "c:\Users\safal\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 64760
+PSVersion: 5.1.26100.4202
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.4202
+BuildVersion: 10.0.26100.4202
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is ./deploy-log-20250626-005001.txt
+📦 [1/5] Проверка статуса Git...
+
+🧹 [2/5] Чистим старые билды...
+🔨 [3/5] Сборка проекта...
+
+📄 Копируем index.html → 404.html...
+PS>TerminatingError(Copy-Item): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: Cannot find path 'C:\Users\safal\OneDrive\Documente\GitHub\land_plf\dist\index.html' because it does not exist."
+>> TerminatingError(Copy-Item): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: Cannot find path 'C:\Users\safal\OneDrive\Documente\GitHub\land_plf\dist\index.html' because it does not exist."
+>> TerminatingError(Copy-Item): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: Cannot find path 'C:\Users\safal\OneDrive\Documente\GitHub\land_plf\dist\index.html' because it does not exist."
+The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: Cannot find path 'C:\Users\safal\OneDrive\Documente\GitHub\land_plf\dist\index.html' because it does not exist.
+Copy-Item : Cannot find path 'C:\Users\safal\OneDrive\Documente\GitHub\land_plf\dist\index.html' because it does not exist.
+At C:\Users\safal\OneDrive\Documente\GitHub\land_plf\deploy.ps1:49 char:1
++ Copy-Item "$env:DEPLOY_DIR/index.html" "$env:DEPLOY_DIR/404.html" -Fo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\safal\...dist\index.html:String) [Copy-Item], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.CopyItemCommand
+
+]633;D;1]633;A]633;P;Cwd=C:\x5cUsers\x5csafal\x5cOneDrive\x5cDocumente\x5cGitHub\x5cland_plfPS C:\Users\safal\OneDrive\Documente\GitHub\land_plf> ]633;B
+PS>npm run build
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5csafal\x5cOneDrive\x5cDocumente\x5cGitHub\x5cland_plfPS C:\Users\safal\OneDrive\Documente\GitHub\land_plf> ]633;B
+PS>npx serve dist
+
+PS>TerminatingError(): "Конвейерная обработка была остановлена."
+>> TerminatingError(): "Конвейерная обработка была остановлена."
+]633;D;1]633;A]633;P;Cwd=C:\x5cUsers\x5csafal\x5cOneDrive\x5cDocumente\x5cGitHub\x5cland_plfPS C:\Users\safal\OneDrive\Documente\GitHub\land_plf> ]633;B
+PS>./deploy.ps1
+
+🧠 Запускаем предварительный чеклист по мнению шести мушкетёров...
+❓ Snowden спрашивает: Безопасность. Проверен ли .env, отключён ли debug?
+❓ Kelsey спрашивает: Убедись, что всё работает локально. CLI-first.
+❓ Assange спрашивает: Честно ли это? Расскажет ли код правду?
+❓ Charity спрашивает: Наблюдаешь ли ты, что происходит после деплоя?
+❓ Gene спрашивает: Есть ли ценность для пользователя? Устраняет ли боль?
+❓ Brendan спрашивает: Архитектура расширяемая? Или залипание?
+✅ Если согласен — продолжаем.
+Transcript started, output file is ./deploy-log-20250626-011925.txt
+📦 [1/5] Проверка статуса Git...
+
+🧹 [2/5] Чистим старые билды...
+🔨 [3/5] Сборка проекта...
+
+📄 Копируем index.html → 404.html...
+🌿 [4/5] Создаём ветку gh-pages и коммитим...
+
+
+
+☁️ [5/5] Пушим в GitHub Pages...
+
+
+✅ Деплой завершён. Проверь: https://safal207.github.io/land_plf
+Перед великим умом я склоняю голову, перед великим сердцем — преклоняю колени. — В. Гюго
+Transcript stopped, output file is C:\Users\safal\OneDrive\Documente\GitHub\land_plf\deploy-log-20250626-011925.txt
+
+🌐 Открываем портал LIMINAL во внешнем мире...
+     ✧･ﾟ: *✧･ﾟ:*        *:･ﾟ✧*:･ﾟ✧
+        🔮   Портал открыт в Ноосферу...
+     ✧･ﾟ: *✧･ﾟ:*        *:･ﾟ✧*:･ﾟ✧
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5csafal\x5cOneDrive\x5cDocumente\x5cGitHub\x5cland_plfPS C:\Users\safal\OneDrive\Documente\GitHub\land_plf> ]633;B
+PS>./deploy.ps1
+git checkout HEAD^ -- src/ vite.config.ts package.json package-lock.json
+🧠 Запускаем предварительный чеклист по мнению шести мушкетёров...
+❓ Snowden спрашивает: Безопасность. Проверен ли .env, отключён ли debug?
+❓ Kelsey спрашивает: Убедись, что всё работает локально. CLI-first.
+❓ Assange спрашивает: Честно ли это? Расскажет ли код правду?
+❓ Charity спрашивает: Наблюдаешь ли ты, что происходит после деплоя?
+❓ Gene спрашивает: Есть ли ценность для пользователя? Устраняет ли боль?
+❓ Brendan спрашивает: Архитектура расширяемая? Или залипание?
+✅ Если согласен — продолжаем.
+Transcript started, output file is ./deploy-log-20250626-012243.txt
+📦 [1/5] Проверка статуса Git...
+
+🧪 Запуск в режиме dry-run завершён. Выход.
+Transcript stopped, output file is C:\Users\safal\OneDrive\Documente\GitHub\land_plf\deploy-log-20250626-012243.txt
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5csafal\x5cOneDrive\x5cDocumente\x5cGitHub\x5cland_plfPS C:\Users\safal\OneDrive\Documente\GitHub\land_plf> ]633;B
+PS>npm install
+
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5csafal\x5cOneDrive\x5cDocumente\x5cGitHub\x5cland_plfPS C:\Users\safal\OneDrive\Documente\GitHub\land_plf> ]633;B
