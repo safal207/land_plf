@@ -147,19 +147,19 @@ export default function Support() {
             <div className="space-y-3">
               <div className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg">
                 <span className="text-slate-300">🔴 Критический</span>
-                <span className="text-red-400 font-medium">< 1 часа</span>
+                <span className="text-red-400 font-medium">&lt; 1 часа</span>
               </div>
               <div className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg">
                 <span className="text-slate-300">🟠 Высокий</span>
-                <span className="text-orange-400 font-medium">< 4 часов</span>
+                <span className="text-orange-400 font-medium">{'< 4 часов'}</span>
               </div>
               <div className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg">
                 <span className="text-slate-300">🟡 Средний</span>
-                <span className="text-yellow-400 font-medium">< 24 часов</span>
+                <span className="text-yellow-400 font-medium">&lt; 24 часов</span>
               </div>
               <div className="flex items-center justify-between p-3 bg-slate-700/50 rounded-lg">
                 <span className="text-slate-300">🟢 Низкий</span>
-                <span className="text-green-400 font-medium">< 48 часов</span>
+                <span className="text-green-400 font-medium">&lt; 48 часов</span>
               </div>
             </div>
           </div>
