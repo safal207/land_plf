@@ -1,13 +1,13 @@
 // 📁 src/components/EmailForm.ts
-// Компонент формы email подписки с валидацией
+// Email subscription form component with validation
 
 import type { EmailFormData, ValidationResult } from '../types';
 import { DOMHelpers, ValidationHelpers } from '../utils/helpers';
 import { SELECTORS, TEXT } from '../utils/constants';
 
 /**
- * Класс для управления формой email подписки
- * Включает валидацию, анимации и обработку ошибок
+ * Class to manage the email subscription form.
+ * Includes validation, animations, and error handling.
  */
 export class EmailForm {
   private form: HTMLFormElement | null = null;
@@ -23,7 +23,7 @@ export class EmailForm {
   }
 
   /**
-   * Инициализация компонента
+   * Initialize the component
    */
   private init(): void {
     console.log('📧 EmailForm: Initializing...');
@@ -38,7 +38,7 @@ export class EmailForm {
   }
 
   /**
-   * Найти элементы формы в DOM
+   * Find form elements in the DOM
    */
   private findElements(): void {
     this.form = DOMHelpers.getElement<HTMLFormElement>(SELECTORS.EMAIL_FORM);
@@ -46,12 +46,12 @@ export class EmailForm {
     this.submitButton = DOMHelpers.getElement<HTMLButtonElement>(SELECTORS.SUBMIT_BUTTON);
     this.successMessage = DOMHelpers.getElement(SELECTORS.SUCCESS_MESSAGE);
     
-    // Error message создаем динамически, если не найдена
+    // Error message is created dynamically if not found
     this.errorMessage = DOMHelpers.getElement('.error-message');
   }
 
   /**
-   * Проверить что основные элементы найдены
+   * Check that the main elements are found
    */
   private validateElements(): void {
     if (!this.form) {
@@ -69,7 +69,7 @@ export class EmailForm {
   }
 
   /**
-   * Привязать события
+   * Bind events
    */
   private bindEvents(): void {
     if (this.form) {
@@ -84,7 +84,7 @@ export class EmailForm {
   }
 
   /**
-   * Настроить начальное состояние
+   * Set up initial state
    */
   private setupInitialState(): void {
     this.hideMessages();
@@ -92,7 +92,7 @@ export class EmailForm {
   }
 
   /**
-   * Обработать отправку формы
+   * Handle form submission
    */
   private async handleSubmit(event: Event): Promise<void> {
     event.preventDefault();
@@ -105,7 +105,7 @@ export class EmailForm {
       email: this.emailInput.value.trim()
     };
 
-    // Валидация email
+    // Validate email
     const validation = this.validateEmailInput(formData.email);
     if (!validation.isValid) {
       this.showError(validation.message || TEXT.ERROR_INVALID_EMAIL);
@@ -122,14 +122,14 @@ export class EmailForm {
   }
 
   /**
-   * Валидировать email введенный в форму
+   * Validate the email entered in the form
    */
   private validateEmailInput(email: string): ValidationResult {
     return ValidationHelpers.validateEmail(email);
   }
 
   /**
-   * Отправить email на сервер
+   * Send email to the server
    */
   private async submitEmail(data: EmailFormData): Promise<void> {
     this.setSubmittingState(true);
@@ -137,7 +137,7 @@ export class EmailForm {
     try {
       console.log('🚀 EmailForm: Submitting email:', data.email);
       
-      // Отправка данных на Formspree
+      // Submitting data to Formspree
       await this.submitToFormspree(data);
       
       this.showSuccess();
@@ -154,10 +154,10 @@ export class EmailForm {
   }
 
   /**
-   * Отправить данные на Formspree
+   * Submit data to Formspree
    */
   private async submitToFormspree(data: EmailFormData): Promise<void> {
-    // ВАЖНО: Замените 'your_form_id' на ваш реальный ID формы Formspree
+    // IMPORTANT: Replace 'your_form_id' with your actual Formspree form ID
     const FORMSPREE_ENDPOINT = 'https://formspree.io/f/your_form_id';
 
     const response = await fetch(FORMSPREE_ENDPOINT, {
@@ -170,7 +170,7 @@ export class EmailForm {
     });
 
     if (!response.ok) {
-      // Formspree возвращает ошибки в формате JSON
+      // Formspree returns errors in JSON format
       const errorData = await response.json();
       throw new Error(errorData.error || `Server error: ${response.status}`);
     }
@@ -179,7 +179,7 @@ export class EmailForm {
   }
 
   /**
-   * Установить состояние отправки
+   * Set submitting state
    */
   private setSubmittingState(isSubmitting: boolean): void {
     this.isSubmitting = isSubmitting;
@@ -196,7 +196,7 @@ export class EmailForm {
   }
 
   /**
-   * Сбросить состояние кнопки
+   * Reset button state
    */
   private resetButtonState(): void {
     if (!this.submitButton) return;
@@ -207,7 +207,7 @@ export class EmailForm {
   }
 
   /**
-   * Показать сообщение об успехе
+   * Show success message
    */
   private showSuccess(): void {
     this.hideMessages();
@@ -216,7 +216,7 @@ export class EmailForm {
       this.successMessage.style.display = 'block';
       this.successMessage.style.animation = 'fadeInUp 0.5s ease-out';
       
-      // Скрыть через 5 секунд
+      // Hide after 5 seconds
       setTimeout(() => {
         this.hideSuccess();
       }, 5000);
@@ -224,7 +224,7 @@ export class EmailForm {
   }
 
   /**
-   * Скрыть сообщение об успехе
+   * Hide success message
    */
   private hideSuccess(): void {
     if (this.successMessage) {
@@ -234,12 +234,12 @@ export class EmailForm {
   }
 
   /**
-   * Показать сообщение об ошибке
+   * Show error message
    */
   private showError(message: string): void {
     this.hideMessages();
     
-    // Создать элемент ошибки если не существует
+    // Create error element if it doesn't exist
     if (!this.errorMessage) {
       this.createErrorElement();
     }
@@ -249,7 +249,7 @@ export class EmailForm {
       this.errorMessage.style.display = 'block';
       this.errorMessage.style.animation = 'fadeInUp 0.3s ease-out';
       
-      // Скрыть через 4 секунды
+      // Hide after 4 seconds
       setTimeout(() => {
         this.hideError();
       }, 4000);
@@ -257,7 +257,7 @@ export class EmailForm {
   }
 
   /**
-   * Создать элемент для отображения ошибок
+   * Create an element to display errors
    */
   private createErrorElement(): void {
     if (!this.form) return;
@@ -281,7 +281,7 @@ export class EmailForm {
   }
 
   /**
-   * Скрыть сообщение об ошибке
+   * Hide error message
    */
   private hideError(): void {
     if (this.errorMessage) {
@@ -291,7 +291,7 @@ export class EmailForm {
   }
 
   /**
-   * Скрыть все сообщения
+   * Hide all messages
    */
   private hideMessages(): void {
     this.hideSuccess();
@@ -299,7 +299,7 @@ export class EmailForm {
   }
 
   /**
-   * Очистить форму
+   * Clear the form
    */
   private clearForm(): void {
     if (this.emailInput) {
@@ -309,7 +309,7 @@ export class EmailForm {
   }
 
   /**
-   * Анимация тряски формы при ошибке
+   * Shake form animation on error
    */
   private shakeForm(): void {
     if (this.form) {
@@ -323,16 +323,16 @@ export class EmailForm {
   }
 
   /**
-   * Обработать изменение ввода
+   * Handle input change
    */
   private handleInputChange(): void {
     if (!this.emailInput) return;
     
-    // Убрать ошибку при вводе
+    // Remove error on input
     this.emailInput.classList.remove('error');
     this.hideError();
     
-    // Добавить класс успеха если email валидный
+    // Add success class if email is valid
     const validation = this.validateEmailInput(this.emailInput.value);
     if (validation.isValid) {
       this.emailInput.classList.add('success');
@@ -342,7 +342,7 @@ export class EmailForm {
   }
 
   /**
-   * Обработать потерю фокуса
+   * Handle input blur
    */
   private handleInputBlur(): void {
     if (!this.emailInput) return;
@@ -354,7 +354,7 @@ export class EmailForm {
   }
 
   /**
-   * Обработать получение фокуса
+   * Handle input focus
    */
   private handleInputFocus(): void {
     if (!this.emailInput) return;
@@ -364,7 +364,7 @@ export class EmailForm {
   }
 
   /**
-   * Программно отправить форму с email
+   * Programmatically submit the form with an email
    */
   public submitWithEmail(email: string): Promise<void> {
     if (!this.emailInput) {
@@ -376,14 +376,14 @@ export class EmailForm {
   }
 
   /**
-   * Получить текущий email из формы
+   * Get the current email from the form
    */
   public getCurrentEmail(): string {
     return this.emailInput?.value.trim() || '';
   }
 
   /**
-   * Проверить валиден ли текущий email
+   * Check if the current email is valid
    */
   public isCurrentEmailValid(): boolean {
     const email = this.getCurrentEmail();
@@ -391,7 +391,7 @@ export class EmailForm {
   }
 
   /**
-   * Установить placeholder для input
+   * Set placeholder for the input
    */
   public setPlaceholder(placeholder: string): void {
     if (this.emailInput) {
@@ -400,7 +400,7 @@ export class EmailForm {
   }
 
   /**
-   * Получить статистику формы
+   * Get form statistics
    */
   public getStats(): {
     isInitialized: boolean;
@@ -422,14 +422,14 @@ export class EmailForm {
   }
 
   /**
-   * Очистка ресурсов
+   * Clean up resources
    */
   public destroy(): void {
     console.log('🗑️ EmailForm: Destroying...');
     
     this.hideMessages();
     
-    // Удалить слушатели событий
+    // Remove event listeners
     if (this.form) {
       this.form.removeEventListener('submit', this.handleSubmit);
     }
@@ -440,7 +440,7 @@ export class EmailForm {
       this.emailInput.removeEventListener('focus', this.handleInputFocus);
     }
     
-    // Очистить ссылки
+    // Clear references
     this.form = null;
     this.emailInput = null;
     this.submitButton = null;

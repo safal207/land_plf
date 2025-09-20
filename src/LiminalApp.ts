@@ -1,5 +1,5 @@
-// 📁 src/LiminalApp.ts - Модульная архитектура
-// Главный файл приложения - теперь простой и чистый!
+// 📁 src/LiminalApp.ts - Modular Architecture
+// The main application file - now simple and clean!
 
 import { ParticleSystem } from './components/ParticleSystem';
 import { QuantumClock } from './components/QuantumClock';
@@ -9,29 +9,29 @@ import { FeedbackForm } from './components/FeedbackForm';
 import { TimeHelpers } from './utils/helpers';
 import { SELECTORS, ANIMATION_CONFIG } from './utils/constants';
 
-// Модули
+// Modules
 import { EffectsModule } from './modules/EffectsModule';
 import { MenuModule } from './modules/MenuModule';
 import { PortalModule } from './modules/PortalModule';
 
 /**
- * Главный класс приложения LIMINAL
- * Простой и чистый - вся логика в модулях!
+ * Main LIMINAL application class.
+ * Simple and clean - all logic is in modules!
  */
 export class LiminalApp {
-  // Основные компоненты
+  // Core Components
   private particleSystem: ParticleSystem | null = null;
   private quantumClock: QuantumClock | null = null;
   private heartControls: HeartControls | null = null;
   private emailForm: EmailForm | null = null;
   private feedbackForm: FeedbackForm | null = null;
 
-  // Модули (вся магия здесь!)
+  // Modules (all the magic is here!)
   private effectsModule: EffectsModule | null = null;
   private menuModule: MenuModule | null = null;
   private portalModule: PortalModule | null = null;
 
-  // Состояние
+  // State
   private isInitialized: boolean = false;
   private startTime: number = 0;
 
@@ -40,20 +40,20 @@ export class LiminalApp {
   }
 
   /**
-   * Инициализация - теперь простая и понятная!
+   * Initialization - now simple and clear!
    */
   private async init(): Promise<void> {
     console.log('🚀 LiminalApp: Starting modular initialization...');
     this.startTime = TimeHelpers.now();
     
     try {
-      // 1. Инициализация основных компонентов
+      // 1. Initialize core components
       await this.initCoreComponents();
       
-      // 2. Инициализация модулей
+      // 2. Initialize modules
       await this.initModules();
       
-      // 3. Финализация
+      // 3. Finalize
       this.finalize();
       
     } catch (error) {
@@ -63,12 +63,12 @@ export class LiminalApp {
   }
 
   /**
-   * Инициализация основных компонентов
+   * Initialize Core Components
    */
   private async initCoreComponents(): Promise<void> {
     console.log('⚙️ Initializing core components...');
     
-    // Частицы
+    // Particles
     try {
       this.particleSystem = new ParticleSystem(SELECTORS.PARTICLES_CONTAINER, 50);
       console.log('✅ ParticleSystem ready');
@@ -76,7 +76,7 @@ export class LiminalApp {
       console.warn('⚠️ ParticleSystem failed:', error);
     }
 
-    // Квантовые часы
+    // Quantum Clock
     try {
       this.quantumClock = new QuantumClock();
       console.log('✅ QuantumClock ready');
@@ -84,7 +84,7 @@ export class LiminalApp {
       console.warn('⚠️ QuantumClock failed:', error);
     }
 
-    // Сердечки
+    // Hearts
     try {
       this.heartControls = new HeartControls();
       console.log('✅ HeartControls ready');
@@ -92,7 +92,7 @@ export class LiminalApp {
       console.warn('⚠️ HeartControls failed:', error);
     }
 
-    // Email форма
+    // Email Form
     try {
       this.emailForm = new EmailForm();
       console.log('✅ EmailForm ready');
@@ -100,7 +100,7 @@ export class LiminalApp {
       console.warn('⚠️ EmailForm failed:', error);
     }
 
-    // Feedback форма
+    // Feedback Form
     try {
       this.feedbackForm = new FeedbackForm(SELECTORS.FEEDBACK_FORM);
       console.log('✅ FeedbackForm ready');
@@ -110,21 +110,21 @@ export class LiminalApp {
   }
 
   /**
-   * Инициализация модулей - вся магия!
+   * Initialize Modules - all the magic!
    */
   private async initModules(): Promise<void> {
     console.log('🎨 Initializing modules...');
     
-    // Модуль эффектов (самый важный!)
+    // Effects module (most important!)
     try {
       this.effectsModule = new EffectsModule();
       console.log('✅ EffectsModule ready');
     } catch (error) {
       console.warn('⚠️ EffectsModule failed:', error);
-      return; // Без эффектов дальше нет смысла
+      return; // No point in continuing without effects
     }
 
-    // Модуль меню (использует эффекты)
+    // Menu module (uses effects)
     try {
       this.menuModule = new MenuModule(this.effectsModule);
       console.log('✅ MenuModule ready');
@@ -132,7 +132,7 @@ export class LiminalApp {
       console.warn('⚠️ MenuModule failed:', error);
     }
 
-    // Модуль портала
+    // Portal module
     try {
       this.portalModule = new PortalModule();
       console.log('✅ PortalModule ready');
@@ -142,7 +142,7 @@ export class LiminalApp {
   }
 
   /**
-   * Финализация инициализации
+   * Finalize Initialization
    */
   private finalize(): void {
     this.isInitialized = true;
@@ -155,24 +155,24 @@ export class LiminalApp {
   }
 
   /**
-   * Настроить глобальные возможности
+   * Set up global features
    */
   private setupGlobalFeatures(): void {
-    // Управление глазами
+    // Eyes controls
     this.setupEyesControls();
 
-    // Настройка модального окна обратной связи
+    // Set up feedback modal
     this.setupFeedbackModal();
     
-    // Отзывчивость окна
+    // Window responsiveness
     this.setupResponsiveness();
     
-    // Глобальные хоткеи (минимум)
+    // Global hotkeys (minimum)
     this.setupGlobalHotkeys();
   }
 
   /**
-   * Настроить модальное окно обратной связи
+   * Set up feedback modal
    */
   private setupFeedbackModal(): void {
     const openBtn = document.getElementById('openFeedbackModalBtn');
@@ -187,7 +187,7 @@ export class LiminalApp {
     openBtn.addEventListener('click', () => modal.classList.add('active'));
     closeBtn.addEventListener('click', () => modal.classList.remove('active'));
 
-    // Закрытие по клику на фон
+    // Close on background click
     modal.addEventListener('click', (event) => {
       if (event.target === modal) {
         modal.classList.remove('active');
@@ -196,7 +196,7 @@ export class LiminalApp {
   }
 
   /**
-   * Настроить управление глазами
+   * Set up eyes controls
    */
   private setupEyesControls(): void {
     const closeEyesBtn = document.querySelector('.close-eyes-btn') as HTMLElement;
@@ -217,18 +217,18 @@ export class LiminalApp {
   }
 
   /**
-   * Настроить отзывчивость
+   * Set up responsiveness
    */
   private setupResponsiveness(): void {
     window.addEventListener('resize', () => {
-      // Адаптация частиц под размер экрана
+      // Adapt particles to screen size
       if (this.particleSystem) {
         const newCount = window.innerWidth < 768 ? 25 : 50;
         this.particleSystem.setParticleCount(newCount);
       }
     });
 
-    // Пауза при скрытии страницы
+    // Pause when page is hidden
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
         this.pauseHeavyAnimations();
@@ -239,11 +239,11 @@ export class LiminalApp {
   }
 
   /**
-   * Глобальные горячие клавиши
+   * Global Hotkeys
    */
   private setupGlobalHotkeys(): void {
     document.addEventListener('keydown', (e) => {
-      // Escape - закрыть оверлеи
+      // Escape - close overlays
       if (e.key === 'Escape') {
         const eyesOverlay = document.querySelector('#eyesClosedOverlay');
         if (eyesOverlay?.classList.contains('active')) {
@@ -256,7 +256,7 @@ export class LiminalApp {
         }
       }
       
-      // Дополнительные хоткеи для разработки
+      // Additional hotkeys for development
       if (e.ctrlKey && e.shiftKey) {
         switch (e.key.toLowerCase()) {
           case 's':
@@ -277,23 +277,23 @@ export class LiminalApp {
   }
 
   /**
-   * Приостановить тяжелые анимации
+   * Pause Heavy Animations
    */
   private pauseHeavyAnimations(): void {
     this.particleSystem?.stop();
-    // Другие тяжелые анимации
+    // Other heavy animations
   }
 
   /**
-   * Возобновить анимации
+   * Resume Animations
    */
   private resumeHeavyAnimations(): void {
     this.particleSystem?.start();
-    // Другие анимации
+    // Other animations
   }
 
   /**
-   * Показать приветственное сообщение
+   * Show Welcome Message
    */
   private showWelcomeMessage(): void {
     console.log(`
@@ -317,12 +317,12 @@ export class LiminalApp {
   }
 
   /**
-   * Обработка ошибок
+   * Error Handling
    */
   private handleError(error: any): void {
     console.error('🚨 Critical error:', error);
     
-    // Показать fallback интерфейс
+    // Show fallback interface
     document.body.innerHTML = `
       <div style="
         display: flex; 
@@ -357,25 +357,25 @@ export class LiminalApp {
   }
 
   // ==========================================
-  // PUBLIC API - для внешнего использования
+  // PUBLIC API - for external use
   // ==========================================
 
   /**
-   * Активировать секцию меню программно
+   * Activate menu section programmatically
    */
   public activateSection(section: string): void {
     this.menuModule?.activateSection(section);
   }
 
   /**
-   * Активировать портал
+   * Activate portal
    */
   public activatePortal(): void {
     this.portalModule?.activate();
   }
 
   /**
-   * Запустить эффект
+   * Run effect
    */
   public runEffect(effectName: string): void {
     if (this.effectsModule && typeof (this.effectsModule as any)[effectName] === 'function') {
@@ -384,7 +384,7 @@ export class LiminalApp {
   }
 
   /**
-   * Получить статистику приложения
+   * Get application statistics
    */
   public getStats(): object {
     return {
@@ -404,14 +404,14 @@ export class LiminalApp {
   }
 
   /**
-   * Показать статистику (для разработки)
+   * Show statistics (for development)
    */
   private showStats(): void {
     console.table(this.getStats());
   }
 
   /**
-   * Перезагрузить модули (для разработки)
+   * Reload modules (for development)
    */
   private reloadModules(): void {
     console.log('🔄 Reloading all modules...');
@@ -423,7 +423,7 @@ export class LiminalApp {
   }
 
   /**
-   * Режим отладки (для разработки)
+   * Debug mode (for development)
    */
   private toggleDebugMode(): void {
     const body = document.body;
@@ -438,7 +438,7 @@ export class LiminalApp {
   }
 
   /**
-   * Добавить стили отладки
+   * Add debug styles
    */
   private addDebugStyles(): void {
     if (document.getElementById('debug-styles')) return;
@@ -458,16 +458,16 @@ export class LiminalApp {
   }
 
   /**
-   * Уничтожить приложение
+   * Destroy application
    */
   public destroy(): void {
     console.log('🗑️ Destroying LIMINAL...');
     
-    // Уничтожить модули
+    // Destroy modules
     this.menuModule?.destroy();
     this.portalModule?.destroy();
     
-    // Остановить компоненты
+    // Stop components
     this.particleSystem?.stop();
     
     this.isInitialized = false;

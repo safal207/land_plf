@@ -1,10 +1,10 @@
 // 📁 src/utils/constants.ts
-// Все константы, цвета и статические данные для LIMINAL
+// All constants, colors, and static data for LIMINAL
 
 import type { FeatureData, StoryData, StatData, ColorScheme } from '../types';
 
 /**
- * Цветовая схема приложения
+ * Application color scheme
  */
 export const COLORS: ColorScheme = {
   primary: '#00ffee',
@@ -15,12 +15,12 @@ export const COLORS: ColorScheme = {
 } as const;
 
 /**
- * Символы для Matrix дождя
+ * Characters for Matrix rain
  */
 export const MATRIX_CHARS = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
 
 /**
- * Настройки анимаций
+ * Animation settings
  */
 export const ANIMATION_CONFIG = {
   PARTICLE_COUNT: 50,
@@ -32,7 +32,7 @@ export const ANIMATION_CONFIG = {
 } as const;
 
 /**
- * Данные для карточек функций
+ * Data for feature cards
  */
 export const FEATURES_DATA: FeatureData[] = [
   {
@@ -80,7 +80,7 @@ export const FEATURES_DATA: FeatureData[] = [
 ];
 
 /**
- * Истории успеха клиентов
+ * Customer success stories
  */
 export const STORIES_DATA: StoryData[] = [
   {
@@ -110,7 +110,7 @@ export const STORIES_DATA: StoryData[] = [
 ];
 
 /**
- * Статистические данные
+ * Statistical data
  */
 export const STATS_DATA: StatData[] = [
   { number: '99.99%', label: 'Uptime Guarantee' },
@@ -120,7 +120,7 @@ export const STATS_DATA: StatData[] = [
 ];
 
 /**
- * CSS селекторы
+ * CSS selectors
  */
 export const SELECTORS = {
   PARTICLES_CONTAINER: '#particles',
@@ -147,7 +147,7 @@ export const SELECTORS = {
 } as const;
 
 /**
- * Текстовые константы
+ * Text constants
  */
 export const TEXT = {
   HERO_TITLE: 'AI Infrastructure\nRevolutionized',
@@ -166,7 +166,7 @@ export const TEXT = {
 } as const;
 
 /**
- * Регулярные выражения
+ * Regular expressions
  */
 export const REGEX = {
   EMAIL: /^[^\s@]+@[^\s@]+\.[^\s@]+$/

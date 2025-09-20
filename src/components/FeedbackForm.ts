@@ -1,10 +1,10 @@
 // 📁 src/components/FeedbackForm.ts
-// Компонент для сбора обратной связи от пользователей
+// Component for collecting user feedback
 
 import { DOMHelpers, ValidationHelpers } from '../utils/helpers';
 import { SELECTORS, TEXT } from '../utils/constants';
 
-// Расширим типы для данных формы обратной связи
+// Extend types for feedback form data
 export interface FeedbackFormData {
   email: string;
   feedbackType: 'bug' | 'idea' | 'question' | 'other';
@@ -12,7 +12,7 @@ export interface FeedbackFormData {
 }
 
 /**
- * Класс для управления формой обратной связи
+ * Class to manage the feedback form
  */
 export class FeedbackForm {
   private form: HTMLFormElement | null = null;
@@ -46,7 +46,7 @@ export class FeedbackForm {
 
   private findElements(): void {
     if (!this.form) return;
-    // Предполагаем, что у элементов внутри формы будут специфичные классы или data-атрибуты
+    // We assume that elements inside the form will have specific classes or data-attributes
     this.emailInput = this.form.querySelector(SELECTORS.FEEDBACK_EMAIL_INPUT);
     this.feedbackTypeSelect = this.form.querySelector(SELECTORS.FEEDBACK_TYPE_SELECT);
     this.messageTextarea = this.form.querySelector(SELECTORS.FEEDBACK_MESSAGE_TEXTAREA);
@@ -113,8 +113,8 @@ export class FeedbackForm {
   }
 
   private async submitToFormspree(data: FeedbackFormData): Promise<void> {
-    // ВАЖНО: Убедитесь, что у вас есть отдельный эндпоинт для этой формы
-    // или настройте существующий для приема новых полей.
+    // IMPORTANT: Make sure you have a separate endpoint for this form
+    // or configure the existing one to accept new fields.
     const FORMSPREE_ENDPOINT = 'https://formspree.io/f/your_feedback_form_id';
 
     const response = await fetch(FORMSPREE_ENDPOINT, {
@@ -154,7 +154,7 @@ export class FeedbackForm {
   private showError(message: string): void {
     if (!this.errorMessage) {
         this.errorMessage = DOMHelpers.createElement('div', 'error-message');
-        // Стилизация...
+        // Styling...
         this.form?.prepend(this.errorMessage);
     }
     this.errorMessage.textContent = message;

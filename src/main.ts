@@ -1,38 +1,38 @@
 // 📁 src/main.ts
-// Точка входа LIMINAL приложения
+// LIMINAL application entry point
 
 import './styles/styles.css';
 import { LiminalApp } from './LiminalApp';
 import { TimeHelpers } from './utils/helpers';
 
 /**
- * Основная функция запуска приложения
+ * Main application bootstrap function
  */
 async function bootstrap(): Promise<void> {
   console.log('🚀 LIMINAL: Starting application...');
   const startTime = TimeHelpers.now();
 
   try {
-    // Проверка поддержки браузера
+    // Check for browser support
     checkBrowserSupport();
     
-    // Логирование информации о среде
+    // Log environment information
     logEnvironmentInfo();
     
-    // Ожидание готовности DOM
+    // Wait for the DOM to be ready
     await waitForDOM();
     
-    // Инициализация приложения
+    // Initialize the application
     const app = new LiminalApp();
     
-    // Расчет времени загрузки
+    // Calculate load time
     const loadTime = TimeHelpers.now() - startTime;
     console.log(`✨ LIMINAL: Application started successfully in ${loadTime}ms`);
     
-    // Сохранить ссылку на приложение для отладки
+    // Save a reference to the app for debugging
     (window as any).LiminalApp = app;
     
-    // Показать welcome сообщение через небольшую задержку
+    // Show welcome message after a short delay
     setTimeout(() => {
       showWelcomeConsoleArt();
     }, 1000);
@@ -44,7 +44,7 @@ async function bootstrap(): Promise<void> {
 }
 
 /**
- * Проверить поддержку браузера
+ * Check for browser support
  */
 function checkBrowserSupport(): void {
   const requiredFeatures = [
@@ -67,7 +67,7 @@ function checkBrowserSupport(): void {
     throw new Error(`Browser missing required features: ${unsupportedFeatures.join(', ')}`);
   }
   
-  // Проверить поддержку CSS Grid и Flexbox
+  // Check for CSS Grid and Flexbox support
   if (!CSS.supports('display', 'grid') || !CSS.supports('display', 'flex')) {
     console.warn('⚠️ Limited CSS support detected');
   }
@@ -76,7 +76,7 @@ function checkBrowserSupport(): void {
 }
 
 /**
- * Логирование информации о среде
+ * Log environment information
  */
 function logEnvironmentInfo(): void {
   const info = {
@@ -102,7 +102,7 @@ function logEnvironmentInfo(): void {
 }
 
 /**
- * Ожидание готовности DOM
+ * Wait for the DOM to be ready
  */
 function waitForDOM(): Promise<void> {
   return new Promise((resolve) => {
@@ -115,7 +115,7 @@ function waitForDOM(): Promise<void> {
 }
 
 /**
- * Показать welcome ASCII art в консоли
+ * Display welcome ASCII art in the console
  */
 function showWelcomeConsoleArt(): void {
   const art = `
@@ -157,7 +157,7 @@ function showWelcomeConsoleArt(): void {
 }
 
 /**
- * Показать fallback интерфейс при ошибке
+ * Display fallback interface on error
  */
 function showFallbackInterface(error: any): void {
   document.body.innerHTML = `
@@ -265,7 +265,7 @@ function showFallbackInterface(error: any): void {
     </div>
   `;
 
-  // Добавить hover эффекты для кнопок
+  // Add hover effects for buttons
   const style = document.createElement('style');
   style.textContent = `
     #fallback-interface button:hover {
@@ -277,26 +277,26 @@ function showFallbackInterface(error: any): void {
 }
 
 /**
- * Обработка критических ошибок
+ * Critical error handling
  */
 function setupGlobalErrorHandling(): void {
-  // Обработка необработанных промисов
+  // Handle unhandled promise rejections
   window.addEventListener('unhandledrejection', (event) => {
     console.error('🚨 Unhandled Promise Rejection:', event.reason);
     event.preventDefault();
   });
 
-  // Обработка глобальных ошибок
+  // Handle global errors
   window.addEventListener('error', (event) => {
     console.error('🚨 Global Error:', event.error);
   });
 }
 
 /**
- * Настройка production оптимизаций
+ * Set up production optimizations
  */
 function setupProductionOptimizations(): void {
-  // Отключить логи в production
+  // Disable logs in production
   if (import.meta.env.PROD) {
     const originalConsole = { ...console };
     console.log = () => {};
@@ -305,7 +305,7 @@ function setupProductionOptimizations(): void {
     console.error = originalConsole.error;
   }
 
-  // Prefetch критических ресурсов
+  // Prefetch critical resources
   const criticalFonts = [
     'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap'
   ];
@@ -319,29 +319,29 @@ function setupProductionOptimizations(): void {
 }
 
 /**
- * Инициализация аналитики (если нужно)
+ * Initialize analytics (if needed)
  */
 function initAnalytics(): void {
-  // Здесь можно добавить Google Analytics, Mixpanel и т.д.
+  // Google Analytics, Mixpanel, etc. can be added here.
   console.log('📈 Analytics initialized');
 }
 
-// Настройка глобальной обработки ошибок
+// Set up global error handling
 setupGlobalErrorHandling();
 
-// Production оптимизации
+// Production optimizations
 setupProductionOptimizations();
 
-// Инициализация аналитики
+// Initialize analytics
 initAnalytics();
 
-// Запуск приложения
+// Start the application
 bootstrap().catch(error => {
   console.error('💥 Fatal error during bootstrap:', error);
   showFallbackInterface(error);
 });
 
-// Экспорт для отладки в dev режиме
+// Export for debugging in dev mode
 if (import.meta.env.DEV) {
   (window as any).bootstrap = bootstrap;
   (window as any).showWelcomeConsoleArt = showWelcomeConsoleArt;
