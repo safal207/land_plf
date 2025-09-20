@@ -5,6 +5,7 @@ import { ParticleSystem } from './components/ParticleSystem';
 import { QuantumClock } from './components/QuantumClock';
 import { HeartControls } from './components/HeartControls';
 import { EmailForm } from './components/EmailForm';
+import { FeedbackForm } from './components/FeedbackForm';
 import { TimeHelpers } from './utils/helpers';
 import { SELECTORS, ANIMATION_CONFIG } from './utils/constants';
 
@@ -23,6 +24,7 @@ export class LiminalApp {
   private quantumClock: QuantumClock | null = null;
   private heartControls: HeartControls | null = null;
   private emailForm: EmailForm | null = null;
+  private feedbackForm: FeedbackForm | null = null;
 
   // Модули (вся магия здесь!)
   private effectsModule: EffectsModule | null = null;
@@ -97,6 +99,14 @@ export class LiminalApp {
     } catch (error) {
       console.warn('⚠️ EmailForm failed:', error);
     }
+
+    // Feedback форма
+    try {
+      this.feedbackForm = new FeedbackForm(SELECTORS.FEEDBACK_FORM);
+      console.log('✅ FeedbackForm ready');
+    } catch (error) {
+      console.warn('⚠️ FeedbackForm failed:', error);
+    }
   }
 
   /**
@@ -150,12 +160,39 @@ export class LiminalApp {
   private setupGlobalFeatures(): void {
     // Управление глазами
     this.setupEyesControls();
+
+    // Настройка модального окна обратной связи
+    this.setupFeedbackModal();
     
     // Отзывчивость окна
     this.setupResponsiveness();
     
     // Глобальные хоткеи (минимум)
     this.setupGlobalHotkeys();
+  }
+
+  /**
+   * Настроить модальное окно обратной связи
+   */
+  private setupFeedbackModal(): void {
+    const openBtn = document.getElementById('openFeedbackModalBtn');
+    const closeBtn = document.getElementById('closeFeedbackModalBtn');
+    const modal = document.getElementById('feedbackModal');
+
+    if (!openBtn || !closeBtn || !modal) {
+      console.warn('⚠️ Feedback modal elements not found');
+      return;
+    }
+
+    openBtn.addEventListener('click', () => modal.classList.add('active'));
+    closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+
+    // Закрытие по клику на фон
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal.classList.remove('active');
+      }
+    });
   }
 
   /**
@@ -187,7 +224,7 @@ export class LiminalApp {
       // Адаптация частиц под размер экрана
       if (this.particleSystem) {
         const newCount = window.innerWidth < 768 ? 25 : 50;
-        // Обновление количества частиц (если есть такой метод)
+        this.particleSystem.setParticleCount(newCount);
       }
     });
 
@@ -208,9 +245,14 @@ export class LiminalApp {
     document.addEventListener('keydown', (e) => {
       // Escape - закрыть оверлеи
       if (e.key === 'Escape') {
-        const overlay = document.querySelector('#eyesClosedOverlay');
-        if (overlay?.classList.contains('active')) {
-          overlay.classList.remove('active');
+        const eyesOverlay = document.querySelector('#eyesClosedOverlay');
+        if (eyesOverlay?.classList.contains('active')) {
+          eyesOverlay.classList.remove('active');
+        }
+
+        const feedbackModal = document.querySelector('#feedbackModal');
+        if (feedbackModal?.classList.contains('active')) {
+          feedbackModal.classList.remove('active');
         }
       }
       

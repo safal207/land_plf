@@ -1,7 +1,7 @@
 // 📁 src/main.ts
 // Точка входа LIMINAL приложения
 
-import './styles/main.css';
+import './styles/styles.css';
 import { LiminalApp } from './LiminalApp';
 import { TimeHelpers } from './utils/helpers';
 

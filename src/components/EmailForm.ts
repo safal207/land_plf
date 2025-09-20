@@ -2,7 +2,7 @@
 // Компонент формы email подписки с валидацией
 
 import type { EmailFormData, ValidationResult } from '../types';
-import { DOMHelpers, ValidationHelpers, TimeHelpers } from '../utils/helpers';
+import { DOMHelpers, ValidationHelpers } from '../utils/helpers';
 import { SELECTORS, TEXT } from '../utils/constants';
 
 /**
@@ -129,7 +129,7 @@ export class EmailForm {
   }
 
   /**
-   * Отправить email на сервер (симуляция)
+   * Отправить email на сервер
    */
   private async submitEmail(data: EmailFormData): Promise<void> {
     this.setSubmittingState(true);
@@ -137,38 +137,45 @@ export class EmailForm {
     try {
       console.log('🚀 EmailForm: Submitting email:', data.email);
       
-      // Симуляция API запроса
-      await this.simulateAPICall(data);
+      // Отправка данных на Formspree
+      await this.submitToFormspree(data);
       
       this.showSuccess();
       this.clearForm();
       
       console.log('✅ EmailForm: Email submitted successfully');
+    } catch (error) {
+      console.error('❌ EmailForm: Submission to Formspree failed:', error);
+      this.showError((error as Error).message || TEXT.ERROR_GENERAL);
+      this.shakeForm();
     } finally {
       this.setSubmittingState(false);
     }
   }
 
   /**
-   * Симулировать API запрос
+   * Отправить данные на Formspree
    */
-  private async simulateAPICall(data: EmailFormData): Promise<void> {
-    // Симуляция задержки сети
-    await TimeHelpers.delay(1500);
-    
-    // Симуляция случайной ошибки (5% вероятность)
-    if (Math.random() < 0.05) {
-      throw new Error('Network error');
+  private async submitToFormspree(data: EmailFormData): Promise<void> {
+    // ВАЖНО: Замените 'your_form_id' на ваш реальный ID формы Formspree
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/your_form_id';
+
+    const response = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      // Formspree возвращает ошибки в формате JSON
+      const errorData = await response.json();
+      throw new Error(errorData.error || `Server error: ${response.status}`);
     }
     
-    // Здесь был бы реальный API запрос:
-    // const response = await fetch('/api/subscribe', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(data)
-    // });
-    
-    console.log('📡 EmailForm: API call simulated for:', data.email);
+    console.log('📡 EmailForm: Data successfully sent to Formspree for:', data.email);
   }
 
   /**
