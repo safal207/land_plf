@@ -137,7 +137,13 @@ export const SELECTORS = {
   CLOSE_EYES_BTN: '.close-eyes-btn',
   EYES_OVERLAY: '#eyesClosedOverlay',
   FEATURE_CARDS: '.feature-card',
-  STORY_CARDS: '.story-card'
+  STORY_CARDS: '.story-card',
+  // Selectors for Feedback Form
+  FEEDBACK_FORM: '#feedbackForm',
+  FEEDBACK_EMAIL_INPUT: '#feedbackEmailInput',
+  FEEDBACK_TYPE_SELECT: '#feedbackTypeSelect',
+  FEEDBACK_MESSAGE_TEXTAREA: '#feedbackMessageTextarea',
+  FEEDBACK_SUBMIT_BUTTON: '#feedbackSubmitBtn'
 } as const;
 
 /**
