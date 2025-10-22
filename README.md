@@ -61,6 +61,17 @@ export default tseslint.config({
 })
 ```
 
+## Setup Script
+
+```bash
+cd land_plf
+npm install
+npm run build
+npx serve -s dist -l 4173
+```
+
+npx serve нужен, чтобы поднять прод-сервер, так как в Codex `vite dev` не запускается.
+
 ## Build and Serve
 
 Run the build command to create the production output:
