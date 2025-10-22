@@ -58,7 +58,7 @@ src/
 │   ├── HeartControls.ts     # Heart interactions
 │   └── EmailForm.ts         # Email validation
 ├── LiminalApp.ts       # Main app controller
-└── main.ts            # Application entry point
+└── main.tsx           # React entry point
 ```
 
 ### 🧩 Component System
