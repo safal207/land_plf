@@ -972,6 +972,108 @@
             text-shadow: 0 0 8px rgba(0, 255, 238, 0.6);
         }
 
+        .feedback-btn {
+            background: transparent;
+            border: 1px solid #ff59a5;
+            color: #ff59a5;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .feedback-btn:hover {
+            background: rgba(255, 89, 165, 0.1);
+            box-shadow: 0 0 10px rgba(255, 89, 165, 0.5);
+        }
+
+        /* Feedback Modal Styles */
+        .feedback-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+        }
+
+        .feedback-modal.active {
+            display: flex;
+        }
+
+        .feedback-modal-content {
+            background: #181818;
+            border: 1px solid rgba(0, 255, 238, 0.3);
+            border-radius: 12px;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .feedback-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .feedback-modal h3 {
+            color: #00ffee;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #feedbackForm .form-group {
+            margin-bottom: 15px;
+        }
+
+        #feedbackForm label {
+            display: block;
+            color: #c6fff7;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        #feedbackForm input,
+        #feedbackForm select,
+        #feedbackForm textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(0, 255, 238, 0.3);
+            border-radius: 7px;
+            background: #222;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        #feedbackForm textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        #feedbackForm button {
+            width: 100%;
+            padding: 15px;
+            background: #00ffee;
+            border: none;
+            border-radius: 7px;
+            color: #181818;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
         .copyright {
             color: #666;
             font-size: 0.8rem;
@@ -1266,7 +1368,7 @@
                 <h2>Ready to Transform Your AI?</h2>
                 <p>Get instant access to LIMINAL's revolutionary platform</p>
                 
-                <form class="email-form" onsubmit="handleSubmit(event)">
+                <form class="email-form">
                     <input 
                         type="email" 
                         class="email-input" 
@@ -1302,13 +1404,44 @@
             <a href="https://docs.anthropic.com" target="_blank">Documentation</a>
             <a href="mailto:support@liminal.tech">Support</a>
             <a href="https://status.anthropic.com" target="_blank">System Status</a>
+            <button class="feedback-btn" id="openFeedbackModalBtn">Feedback</button>
         </div>
         <div class="copyright">
             © 2025 LIMINAL Technologies. All rights reserved. | Built with ❤️ for the future.
         </div>
     </div>
 
- <!-- React mount point -->
+    <!-- Feedback Modal -->
+    <div class="feedback-modal" id="feedbackModal">
+        <div class="feedback-modal-content">
+            <button class="feedback-modal-close" id="closeFeedbackModalBtn">&times;</button>
+            <h3>Submit Feedback</h3>
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="feedbackEmailInput">Your Email</label>
+                    <input type="email" id="feedbackEmailInput" required>
+                </div>
+                <div class="form-group">
+                    <label for="feedbackTypeSelect">Feedback Type</label>
+                    <select id="feedbackTypeSelect">
+                        <option value="idea">Idea / Suggestion</option>
+                        <option value="bug">Bug Report</option>
+                        <option value="question">Question</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="feedbackMessageTextarea">Message</label>
+                    <textarea id="feedbackMessageTextarea" required minlength="10"></textarea>
+                </div>
+                <div id="successMessage" style="display: none; color: #00ffee; margin-bottom: 15px; text-align: center;">Feedback sent successfully!</div>
+                <div class="error-message" style="display: none; color: #ff4444; margin-bottom: 15px; text-align: center;"></div>
+                <button type="submit" id="feedbackSubmitBtn">Send Feedback</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- React mount point -->
     <div id="root"></div>
 
     <!-- Запуск React (важно: путь должен быть относительным в Vite) -->
@@ -1934,30 +2067,6 @@ setTimeout(() => {
             btn.textContent = 'Close Eyes';
         }
 
-        // Email Form Handler
-        function handleSubmit(event) {
-            event.preventDefault();
-            const emailInput = document.getElementById('emailInput');
-            const successMessage = document.getElementById('successMessage');
-            const submitBtn = event.target.querySelector('.submit-btn');
-            
-            // Simulate API call
-            submitBtn.textContent = 'Processing...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                successMessage.style.display = 'block';
-                emailInput.value = '';
-                submitBtn.textContent = 'Get Access Now';
-                submitBtn.disabled = false;
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 5000);
-            }, 1500);
-        }
-
         // Smooth Scrolling for Navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1969,35 +2078,6 @@ setTimeout(() => {
                         block: 'start'
                     });
                 }
-            });
-        });
-
-        // Initialize everything
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-            createMatrixRain();
-            
-            // Update clock every 10ms for smooth milliseconds
-            setInterval(updateClock, 10);
-            updateClock(); // Initial call
-            
-            // Add scroll animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe all feature cards and story cards
-            document.querySelectorAll('.feature-card, .story-card').forEach(card => {
-                observer.observe(card);
             });
         });
 
@@ -2035,6 +2115,6 @@ setTimeout(() => {
   </button>
 </div>  
 
-
+<script type="module" src="/src/main.ts"></script>
 </body>
 </html>

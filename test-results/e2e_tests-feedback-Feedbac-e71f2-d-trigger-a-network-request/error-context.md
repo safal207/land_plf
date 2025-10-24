@@ -1,0 +1,262 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic:
+    - generic: Darkness... silence... peace...
+    - button "Open Eyes"
+  - generic [ref=e2]:
+    - generic [ref=e3]: Quantum Time
+    - generic [ref=e4]: 00:00:00
+    - generic [ref=e5]: Loading...
+    - generic [ref=e6]: 000ms
+    - generic [ref=e7]: Reality.now()
+  - generic [ref=e8]:
+    - generic [ref=e9]:
+      - generic "Feel the pulse" [ref=e10] [cursor=pointer]: ❤️
+      - generic "Break the cycle" [ref=e11] [cursor=pointer]: 🖤 💔
+    - button "Close Eyes" [ref=e12] [cursor=pointer]
+  - banner [ref=e13]:
+    - navigation [ref=e15]:
+      - generic [ref=e16]: LIMINAL
+      - list [ref=e17]:
+        - listitem [ref=e18]:
+          - link "Features" [ref=e19] [cursor=pointer]:
+            - /url: "#features"
+        - listitem [ref=e20]:
+          - link "Stories" [ref=e21] [cursor=pointer]:
+            - /url: "#stories"
+        - listitem [ref=e22]:
+          - link "Pricing" [ref=e23] [cursor=pointer]:
+            - /url: "#pricing"
+        - listitem [ref=e24]:
+          - link "Contact" [ref=e25] [cursor=pointer]:
+            - /url: "#contact"
+  - main [ref=e26]:
+    - generic [ref=e28]:
+      - generic [ref=e30]: 🚀 BETA ACCESS - LIMITED SPOTS
+      - heading "AI Infrastructure Revolutionized" [level=1] [ref=e31]:
+        - text: AI Infrastructure
+        - text: Revolutionized
+      - paragraph [ref=e32]: Deploy AI Infrastructure 10x Faster with 99.9% Uptime Guarantee
+      - generic [ref=e33]:
+        - text: Join
+        - strong [ref=e34]: 2,847
+        - text: developers already building the future
+      - link "Get Beta Access" [ref=e35] [cursor=pointer]:
+        - /url: "#email"
+      - generic [ref=e36]:
+        - strong [ref=e37]: Only 153 spots remaining
+        - text: • Beta closes in 72 hours
+    - generic [ref=e39]:
+      - heading "Next-Gen Infrastructure" [level=2] [ref=e40]
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - generic [ref=e43] [cursor=pointer]: 🚀
+          - heading "Lightning Deploy" [level=3] [ref=e44]
+          - paragraph [ref=e45]: Deploy AI models in seconds, not hours. Our quantum-optimized infrastructure reduces deployment time by 90%.
+          - generic [ref=e46]:
+            - strong [ref=e47]: "Average deployment:"
+            - text: 12 seconds vs industry 2 hours
+        - generic [ref=e48]:
+          - generic [ref=e49] [cursor=pointer]: ⚡
+          - heading "Quantum Speed" [level=3] [ref=e50]
+          - paragraph [ref=e51]: Experience breakthrough performance with our quantum-enhanced processing cores and neural acceleration.
+          - generic [ref=e52]:
+            - strong [ref=e53]: "Performance boost:"
+            - text: 15x faster inference
+        - generic [ref=e54]:
+          - generic [ref=e55] [cursor=pointer]: 🛡️
+          - heading "Fortress Security" [level=3] [ref=e56]
+          - paragraph [ref=e57]: Military-grade encryption and AI-powered threat detection keep your models and data absolutely secure.
+          - generic [ref=e58]:
+            - strong [ref=e59]: "Security rating:"
+            - text: ISO 27001 + SOC 2 certified
+        - generic [ref=e60]:
+          - generic [ref=e61] [cursor=pointer]: 💎
+          - heading "Crystal Scaling" [level=3] [ref=e62]
+          - paragraph [ref=e63]: Seamlessly scale from prototype to production with our adaptive resource allocation technology.
+          - generic [ref=e64]:
+            - strong [ref=e65]: "Auto-scaling:"
+            - text: 0-100K requests/sec in 3 seconds
+        - generic [ref=e66]:
+          - generic [ref=e67] [cursor=pointer]: 🎯
+          - heading "Precision Analytics" [level=3] [ref=e68]
+          - paragraph [ref=e69]: Deep insights into your AI performance with real-time monitoring and predictive optimization.
+          - generic [ref=e70]:
+            - strong [ref=e71]: "Accuracy improvement:"
+            - text: Up to 23% better model performance
+        - generic [ref=e72]:
+          - generic [ref=e73] [cursor=pointer]: 🌟
+          - heading "Infinite Potential" [level=3] [ref=e74]
+          - paragraph [ref=e75]: Break the boundaries of what's possible with our cutting-edge AI infrastructure platform.
+          - generic [ref=e76]:
+            - strong [ref=e77]: "Innovation rate:"
+            - text: 3x faster time-to-market
+    - generic [ref=e79]:
+      - heading "Developer Success Stories" [level=2] [ref=e80]
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - text: "\"LIMINAL transformed our AI deployment pipeline. We went from"
+            - generic [ref=e84]: 2-week deployments
+            - text: to
+            - generic [ref=e85]: minutes
+            - text: . The quantum acceleration is mind-blowing!"
+          - generic [ref=e86]:
+            - generic [ref=e87]: S
+            - generic [ref=e88]:
+              - heading "Sarah Chen" [level=4] [ref=e89]
+              - paragraph [ref=e90]: Lead AI Engineer, TechNova
+        - generic [ref=e91]:
+          - generic [ref=e92]:
+            - text: "\"The performance gains are incredible. Our model inference speed increased by"
+            - generic [ref=e93]: 1,400%
+            - text: and costs dropped by 60%. LIMINAL is the future."
+          - generic [ref=e94]:
+            - generic [ref=e95]: M
+            - generic [ref=e96]:
+              - heading "Marcus Rodriguez" [level=4] [ref=e97]
+              - paragraph [ref=e98]: CTO, DataFlow Systems
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - text: "\"Security was our biggest concern. LIMINAL's military-grade protection and"
+            - generic [ref=e101]: zero breaches
+            - text: gave us complete peace of mind."
+          - generic [ref=e102]:
+            - generic [ref=e103]: A
+            - generic [ref=e104]:
+              - heading "Aisha Patel" [level=4] [ref=e105]
+              - paragraph [ref=e106]: Security Director, FinanceAI
+      - generic [ref=e107]:
+        - generic [ref=e108]:
+          - generic [ref=e109]: 99.99%
+          - generic [ref=e110]: Uptime Guarantee
+        - generic [ref=e111]:
+          - generic [ref=e112]: 15x
+          - generic [ref=e113]: Faster Performance
+        - generic [ref=e114]:
+          - generic [ref=e115]: 2,847
+          - generic [ref=e116]: Active Developers
+        - generic [ref=e117]:
+          - generic [ref=e118]: $2.3M
+          - generic [ref=e119]: Cost Savings Generated
+    - generic [ref=e121]:
+      - generic [ref=e122]:
+        - heading "🔥 Exclusive Beta Access" [level=3] [ref=e123]
+        - paragraph [ref=e124]: Join the select few building tomorrow's AI infrastructure today
+      - heading "Ready to Transform Your AI?" [level=2] [ref=e125]
+      - paragraph [ref=e126]: Get instant access to LIMINAL's revolutionary platform
+      - generic [ref=e127]:
+        - textbox "Enter your email for beta access" [ref=e128]
+        - button "Get Access Now" [ref=e129] [cursor=pointer]
+      - generic [ref=e130]:
+        - text: ✨ Instant setup • 🚀 No credit card required • 🛡️ Cancel anytime
+        - text: Join 2,847 developers already using LIMINAL
+  - contentinfo [ref=e131]:
+    - generic [ref=e132]:
+      - generic [ref=e133]: Pushing the boundaries of what's possible with AI infrastructure
+      - generic [ref=e134]:
+        - link "Privacy Policy" [ref=e135] [cursor=pointer]:
+          - /url: https://www.termsfeed.com/live/privacy-policy
+        - link "Terms of Service" [ref=e136] [cursor=pointer]:
+          - /url: https://www.termsfeed.com/live/terms-of-service
+        - link "Documentation" [ref=e137] [cursor=pointer]:
+          - /url: https://docs.anthropic.com
+        - link "Support" [ref=e138] [cursor=pointer]:
+          - /url: mailto:support@liminal.tech
+        - link "System Status" [ref=e139] [cursor=pointer]:
+          - /url: https://status.anthropic.com
+        - button "Feedback" [ref=e140] [cursor=pointer]
+      - generic [ref=e141]: © 2025 LIMINAL Technologies. All rights reserved. | Built with ❤️ for the future.
+    - contentinfo [ref=e142]:
+      - generic [ref=e143]:
+        - generic [ref=e145]:
+          - generic [ref=e146]:
+            - heading "🌌 Ready to experience your next breakthrough?" [level=2] [ref=e147]
+            - button "When you feel it — click. The Portal is open →" [ref=e149] [cursor=pointer]:
+              - generic [ref=e150] [cursor=pointer]: When you feel it — click. The Portal is open
+              - generic [ref=e151] [cursor=pointer]: →
+            - generic [ref=e153]:
+              - generic [ref=e154]:
+                - generic [ref=e155]: ✔️
+                - generic [ref=e156]: No ads. No noise. Just clarity.
+              - generic [ref=e157]:
+                - generic [ref=e158]: ✔️
+                - generic [ref=e159]: Built for seekers & solvers.
+              - generic [ref=e160]:
+                - generic [ref=e161]: ✔️
+                - generic [ref=e162]: Start with just 1 minute a day.
+          - generic [ref=e163]:
+            - generic [ref=e164]:
+              - generic [ref=e165]: 📖
+              - generic [ref=e166]: Free Consciousness Guide
+              - paragraph [ref=e167]: "Download our transformative PDF: \"The 7 Phases of Conscious Autonomy\""
+              - button "Download Now → Free" [ref=e168] [cursor=pointer]
+            - paragraph [ref=e171]:
+              - text: Sometimes you read to the end of a page...
+              - generic [ref=e172]: and something inside begins to soften.
+              - generic [ref=e173]: You don't need to rush.
+              - generic [ref=e174]: Just notice the silence between the lines...
+              - generic [ref=e175]: and how part of you is already leaning toward… the next step.
+        - generic [ref=e177]:
+          - generic [ref=e178]:
+            - link "Privacy Policy" [ref=e179] [cursor=pointer]:
+              - /url: /privacy
+            - link "Terms of Service" [ref=e180] [cursor=pointer]:
+              - /url: /terms
+            - link "Documentation" [ref=e181] [cursor=pointer]:
+              - /url: /docs
+            - link "Support" [ref=e182] [cursor=pointer]:
+              - /url: mailto:support@liminal.tech
+            - link "System Status" [ref=e183] [cursor=pointer]:
+              - /url: /status
+          - paragraph [ref=e185]:
+            - text: © 2025 LIMINAL Technologies. Crafted for resonance. Built with
+            - generic [ref=e186]: ❤️
+      - generic:
+        - generic:
+          - generic: 🌱
+          - paragraph:
+            - text: The journey doesn't start with a click.
+            - text: It starts when you pause... and listen inside.
+    - button "🌆 ENTER NOOSPHERE" [ref=e188] [cursor=pointer]:
+      - generic [ref=e189] [cursor=pointer]: 🌆
+      - generic [ref=e190] [cursor=pointer]: ENTER NOOSPHERE
+  - generic [ref=e193]:
+    - generic [ref=e194]:
+      - generic [ref=e195]: "[plugin:vite:import-analysis]"
+      - generic [ref=e196]: Failed to resolve import "./styles/main.css" from "src/main.ts". Does the file exist?
+    - generic [ref=e198] [cursor=pointer]: /app/src/main.ts:4:7
+    - generic [ref=e199]: "1 | import \"./styles/main.css\"; | ^ 2 | import { LiminalApp } from \"./LiminalApp\"; 3 | import { TimeHelpers } from \"./utils/helpers\";"
+    - generic [ref=e200]:
+      - text: "at TransformPluginContext._formatLog (file:"
+      - generic [ref=e201] [cursor=pointer]: ///app/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:42499:41
+      - text: ") at TransformPluginContext.error (file:"
+      - generic [ref=e202] [cursor=pointer]: ///app/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:42496:16
+      - text: ") at normalizeUrl (file:"
+      - generic [ref=e203] [cursor=pointer]: ///app/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:40475:23
+      - text: ) at process.processTicksAndRejections (node:internal
+      - generic [ref=e204] [cursor=pointer]: /process/task_queues:105:5
+      - text: ") at async file:"
+      - generic [ref=e205] [cursor=pointer]: ///app/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:40594:37
+      - text: "at async Promise.all (index 0) at async TransformPluginContext.transform (file:"
+      - generic [ref=e206] [cursor=pointer]: ///app/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:40521:7
+      - text: ") at async EnvironmentPluginContainer.transform (file:"
+      - generic [ref=e207] [cursor=pointer]: ///app/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:42294:18
+      - text: ") at async loadAndTransform (file:"
+      - generic [ref=e208] [cursor=pointer]: ///app/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:35735:27
+      - text: ") at async viteTransformMiddleware (file:"
+      - generic [ref=e209] [cursor=pointer]: ///app/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:37250:24
+    - generic [ref=e210]:
+      - text: Click outside, press
+      - generic [ref=e211]: Esc
+      - text: key, or fix the code to dismiss.
+      - text: You can also disable this overlay by setting
+      - code [ref=e212]: server.hmr.overlay
+      - text: to
+      - code [ref=e213]: "false"
+      - text: in
+      - code [ref=e214]: vite.config.ts
+      - text: .
+```
