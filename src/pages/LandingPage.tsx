@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from "../contexts/LanguageContext";
 
 const translations = {
@@ -12,7 +13,7 @@ const translations = {
     desc: "You are on the threshold of a new era of self-discovery and harmony. Welcome to LIMINAL.",
     button: "Enter LIMINAL →"
   }
-}
+};
 
 export default function LandingPage() {
   const { lang } = useLanguage();
@@ -27,13 +28,13 @@ export default function LandingPage() {
         <p className="text-xl mb-8 animate-fade-in delay-300">
           {t.desc}
         </p>
-        <a
-          href="/home"
+        <Link
+          to="/home"
           className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded transition-colors duration-300 animate-bounce"
         >
           {t.button}
-        </a>
+        </Link>
       </div>
     </div>
-  )
+  );
 }
