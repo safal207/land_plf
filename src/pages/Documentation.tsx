@@ -1,38 +1,131 @@
 // src/pages/Documentation.tsx
 import React, { useState } from 'react'
+import { useLanguage } from "../contexts/LanguageContext";
+import '../styles/landing.css';
+
+function CopyButton({ text, copyLabel, copiedLabel }: { text: string, copyLabel: string, copiedLabel: string }) {
+  const [copied, setCopied] = useState(false);
+  return (
+    <button
+      onClick={() => {
+        navigator.clipboard.writeText(text);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1500);
+      }}
+      className={`
+        ml-2 px-4 py-2 rounded-md font-semibold text-sm
+        bg-cyan-400 text-slate-900 shadow-md
+        transition-all duration-200
+        hover:bg-cyan-300 hover:-translate-y-0.5
+        active:scale-95
+        focus:outline-none focus:ring-2 focus:ring-cyan-400
+        ${copied ? 'bg-green-400 text-slate-900' : ''}
+        sm:px-6 sm:py-2 sm:text-base
+        w-full sm:w-auto
+      `}
+      style={{
+        boxShadow: '0 0 10px rgba(0,255,238,0.3)'
+      }}
+    >
+      {copied ? copiedLabel : copyLabel}
+    </button>
+  );
+}
+
+function QuickStart() {
+  const code = `# Install LIMINAL CLI
+npm install -g @liminal/cli
+
+# Authenticate
+liminal auth login
+
+# Deploy your model
+liminal deploy ./my-model`;
+  return (
+    <div className="bg-gradient-to-r from-cyan-900/20 to-pink-900/20 rounded-lg p-6 border border-cyan-500/30">
+      <h3 className="text-xl font-semibold text-cyan-400 mb-3">Быстрый старт</h3>
+      <p className="text-slate-300 mb-4">
+        Запустите LIMINAL менее чем за 5 минут. Разверните свою первую модель ИИ с нашей квантово-оптимизированной инфраструктурой.
+      </p>
+      <div className="flex items-center">
+        <pre className="bg-slate-900/50 rounded-lg p-4 overflow-x-auto">
+          <code className="text-green-400 text-sm">
+            {code}
+          </code>
+        </pre>
+        <CopyButton text={code} copyLabel={'Копировать'} copiedLabel={'Скопировано!'} />
+      </div>
+    </div>
+  );
+}
 
 export default function Documentation() {
   const [activeSection, setActiveSection] = useState('getting-started')
+  const { lang } = useLanguage();
+
+  const translations = {
+    ru: {
+      title: "Документация",
+      subtitle: "Всё, что нужно для работы с платформой LIMINAL AI",
+      navigation: "Навигация",
+      gettingStarted: "🚀 Быстрый старт",
+      apiReference: "📚 API",
+      deployment: "⚡ Деплой",
+      security: "🛡️ Безопасность",
+      examples: "💡 Примеры",
+      troubleshooting: "🔧 Решение проблем",
+      copy: "Копировать",
+      copied: "Скопировано!",
+    },
+    en: {
+      title: "Documentation",
+      subtitle: "Everything you need to build with LIMINAL's AI infrastructure platform",
+      navigation: "Navigation",
+      gettingStarted: "🚀 Getting Started",
+      apiReference: "📚 API Reference",
+      deployment: "⚡ Deployment",
+      security: "🛡️ Security",
+      examples: "💡 Examples",
+      troubleshooting: "🔧 Troubleshooting",
+      copy: "Copy",
+      copied: "Copied!",
+    }
+  };
+
+  const t = translations[lang];
 
   const sections = [
-    { id: 'getting-started', title: '🚀 Getting Started', icon: '🚀' },
-    { id: 'api-reference', title: '📚 API Reference', icon: '📚' },
-    { id: 'deployment', title: '⚡ Deployment', icon: '⚡' },
-    { id: 'security', title: '🛡️ Security', icon: '🛡️' },
-    { id: 'examples', title: '💡 Examples', icon: '💡' },
-    { id: 'troubleshooting', title: '🔧 Troubleshooting', icon: '🔧' }
+    { id: 'getting-started', title: t.gettingStarted, icon: '🚀' },
+    { id: 'api-reference', title: t.apiReference, icon: '📚' },
+    { id: 'deployment', title: t.deployment, icon: '⚡' },
+    { id: 'security', title: t.security, icon: '🛡️' },
+    { id: 'examples', title: t.examples, icon: '💡' },
+    { id: 'troubleshooting', title: t.troubleshooting, icon: '🔧' }
   ]
 
   return (
     <div className="min-h-screen bg-slate-900">
-      <div className="container mx-auto px-6 py-12 max-w-7xl">
+      <div className="container mx-auto px-2 sm:px-6 py-8 sm:py-12 max-w-7xl">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-cyan-400 mb-4">Documentation</h1>
+          <h1 className="text-4xl font-bold text-cyan-400 mb-4">{t.title}</h1>
           <p className="text-slate-400 text-lg">
-            Everything you need to build with LIMINAL's AI infrastructure platform
+            {t.subtitle}
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-8">
+        <div className="grid gap-6 lg:grid-cols-4">
           {/* Sidebar Navigation */}
-          <div className="lg:col-span-1">
-            <div className="bg-slate-800/50 rounded-lg p-6 sticky top-6">
-              <h3 className="text-lg font-semibold text-white mb-4">Navigation</h3>
+          <div className="lg:col-span-1 mb-6 lg:mb-0">
+            <div className="bg-slate-800/50 rounded-lg p-4 sm:p-6 sticky top-6">
+              <h3 className="text-lg font-semibold text-white mb-4">{t.navigation}</h3>
               <nav className="space-y-2">
                 {sections.map((section) => (
                   <button
                     key={section.id}
-                    onClick={() => setActiveSection(section.id)}
+                    onClick={() => {
+                      setActiveSection(section.id);
+                      document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth' });
+                    }}
                     className={`w-full text-left px-3 py-2 rounded-lg transition-colors ${
                       activeSection === section.id
                         ? 'bg-cyan-600/20 text-cyan-400 border border-cyan-500/30'
@@ -49,30 +142,15 @@ export default function Documentation() {
 
           {/* Main Content */}
           <div className="lg:col-span-3">
-            <div className="bg-slate-800/30 rounded-lg p-8">
+            <div className="bg-slate-800/30 rounded-lg p-4 sm:p-8">
               {activeSection === 'getting-started' && (
-                <div>
+                <div id="getting-started">
                   <h2 className="text-3xl font-bold text-white mb-6">🚀 Getting Started</h2>
                   
                   <div className="space-y-6">
-                    <div className="bg-gradient-to-r from-cyan-900/20 to-pink-900/20 rounded-lg p-6 border border-cyan-500/30">
-                      <h3 className="text-xl font-semibold text-cyan-400 mb-3">Quick Start</h3>
-                      <p className="text-slate-300 mb-4">
-                        Get up and running with LIMINAL in under 5 minutes. Deploy your first AI model with our quantum-optimized infrastructure.
-                      </p>
-                      <div className="bg-slate-900/50 rounded-lg p-4">
-                        <code className="text-green-400 text-sm">
-                          <div># Install LIMINAL CLI</div>
-                          <div>npm install -g @liminal/cli</div>
-                          <div className="mt-2"># Authenticate</div>
-                          <div>liminal auth login</div>
-                          <div className="mt-2"># Deploy your model</div>
-                          <div>liminal deploy ./my-model</div>
-                        </code>
-                      </div>
-                    </div>
+                    <QuickStart />
 
-                    <div className="grid md:grid-cols-2 gap-6">
+                    <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                       <div className="bg-slate-800/50 rounded-lg p-6">
                         <h4 className="text-lg font-medium text-pink-400 mb-3">📋 Prerequisites</h4>
                         <ul className="text-slate-300 space-y-2 text-sm">
@@ -359,11 +437,30 @@ export default function Documentation() {
                       <p className="text-slate-300 mb-4">
                         Can't find what you're looking for? Our support team is here to help 24/7.
                       </p>
-                      <div className="flex gap-4">
-                        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <button
+                          className="
+                            w-full sm:w-auto
+                            bg-cyan-400 text-slate-900 px-4 py-2 rounded-lg font-bold
+                            shadow-md transition-all duration-300
+                            hover:bg-cyan-300 hover:scale-105
+                            focus:outline-none focus:ring-2 focus:ring-cyan-400
+                            text-base sm:text-lg
+                            text-center
+                          "
+                          type="button"
+                        >
                           Contact Support
                         </button>
-                        <button className="border border-blue-500 text-blue-400 hover:bg-blue-500/10 px-4 py-2 rounded-lg transition-colors">
+                        <button
+                          className="
+                            w-full sm:w-auto
+                            border border-blue-500 text-blue-400 hover:bg-blue-500/10 px-4 py-2 rounded-lg transition-colors
+                            text-base sm:text-lg
+                            text-center
+                          "
+                          type="button"
+                        >
                           Join Discord
                         </button>
                       </div>
@@ -378,3 +475,4 @@ export default function Documentation() {
     </div>
   )
 }
+

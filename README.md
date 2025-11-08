@@ -1,159 +1,158 @@
-# 🌟 LIMINAL - Next-Gen AI Infrastructure Platform
+🚀 LIMINAL Project
+Миссия: Помогать людям переходить от тревоги к ясности, соединяя их с внутренним навигатором через интерактивное приложение LIMINAL.
 
-> **Revolutionizing AI Infrastructure with Quantum-Enhanced Performance**  
-> Deploy AI models 10x faster with 99.9% uptime guarantee
-
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Site-00ffee?style=for-the-badge)](https://safal207.github.io/land_plf/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![License](https://img.shields.io/badge/License-MIT-ff59a5?style=for-the-badge)](LICENSE)
-
-## ✨ Features
-
-### 🎮 Interactive Elements
-- 🚀 **Quantum Particle System** - 50 animated particles with physics-based movement
-- ⏰ **Real-time Quantum Clock** - Live time display with milliseconds precision
-- 💖 **Interactive Hearts** - Click to create floating heart animations
-- 📧 **Smart Email Form** - Real-time validation with success/error states
-- 🌧️ **Matrix Rain** - Cyberpunk-style falling characters
-- 👁️ **Eyes Control** - Close/open eyes for immersive experience
-
-### 🎯 User Experience
-- Smooth scroll navigation between sections
-- Responsive design for desktop, tablet, and mobile
-- Intersection animations that fade in on scroll
-- Performance optimization with animations pausing when the page is hidden
-- Graceful error handling
-
-### 🎨 Visual Design
-- Cyberpunk aesthetic with neon colors
-- Glassmorphism effects
-- Animated gradients
-- Rich hover interactions
-- Beautiful loading states
-
-## 🎮 Interactive Controls
-
-| Hotkey | Action |
-|--------|--------|
-| `Ctrl + H` | 💖 Trigger heart rain animation |
-| `Ctrl + P` | ✨ Toggle particle system |
-| `Escape` | 👁️ Close eyes overlay |
-| `Click ❤️` | 💕 Create floating hearts |
-| `Click 🖤` | 💔 Broken heart effect |
-
-## 🏗️ Architecture
-
-### 📁 Project Structure
-```
-src/
-├── types/              # TypeScript interfaces
-│   └── index.ts        # All type definitions
-├── utils/              # Utility functions
-│   ├── constants.ts    # App constants & data
-│   └── helpers.ts      # Helper functions
-├── components/         # Modular components
-│   ├── QuantumClock.ts      # Real-time clock
-│   ├── ParticleSystem.ts    # Particle animations
-│   ├── HeartControls.ts     # Heart interactions
-│   └── EmailForm.ts         # Email validation
-├── LiminalApp.ts       # Main app controller
-└── main.ts             # Application entry point
-```
-
-### 🧩 Component System
-Each component is self-contained with:
-- TypeScript interfaces for type safety
-- Lifecycle management (init, start, stop, destroy)
-- Error handling and performance optimization
-
-### 🛠️ Core Classes
-
-#### `LiminalApp` - Main Controller
-```typescript
-const app = new LiminalApp();
-app.getAppStats();  // Get performance metrics
-app.restart();      // Restart entire app
-```
-
-#### `ParticleSystem` - Physics Engine
-```typescript
-const particles = new ParticleSystem('#container', 50);
-particles.addParticle({ x: 100, y: 100 });
-particles.setVelocityMultiplier(2.0);
-```
-
-#### `QuantumClock` - Time Display
-```typescript
-const clock = new QuantumClock();
-clock.getCurrentData();  // Get current time data
-clock.addBlinkEffect();  // Add visual effects
-```
-
-#### `HeartControls` - Animations
-```typescript
-const hearts = new HeartControls();
-hearts.createHeartsAt({ x: 500, y: 300 }, 5);
-hearts.startHeartRain(5000);
-```
-
-#### `EmailForm` - Validation
-```typescript
-const form = new EmailForm();
-form.submitWithEmail('user@example.com');
-form.isCurrentEmailValid();
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 18+
-- npm
-
-### Installation
-```bash
+📁 Структура проекта
+bash
+Копировать
+Редактировать
+land_plf/
+├─ index.html          # старый английский лендинг (сохранили как исторический артефакт)
+├─ landing.html        # новый лендинг, основанный на твоём дизайне
+├─ .env.local          # настройки BASE_URL, API_URL, режим Beta
+├─ vite.config.ts      # Vite config с поддержкой BASE_URL из .env
+├─ package.json        # зависимости проекта
+├─ /src
+│  ├─ main.tsx         # точка входа React с BrowserRouter
+│  ├─ App.tsx          # маршруты /home, /dashboard и др.
+│  ├─ /pages
+│  │  ├─ Home.tsx      # основная страница CTA с валидацией email, Beta режимом и логами
+│  │  └─ Dashboard.tsx # заготовка для будущей панели управления
+│  ├─ /components
+│  │  ├─ MemoryTimeline.tsx
+│  │  └─ InsightLog.tsx
+│  ├─ /memory
+│  │  ├─ moment.ts, transition.ts, insight.ts, memoryStore.ts
+│  └─ /styles
+│     └─ styles.css
+└─ /dist               # директория для финальной сборки Vite
+⚙️ Установка
+bash
+Копировать
+Редактировать
+# Установить зависимости
 npm install
-```
+🚀 Запуск в разработке
+bash
+Копировать
+Редактировать
+# Запустить локальный dev-сервер
+npm run dev
+По умолчанию сайт будет доступен по адресу: http://localhost:5174
 
-### Development
-```bash
-npm run dev   # Start development server
-npm run lint  # Run ESLint
-```
-
-### Build and Serve
-```bash
+🛠 Сборка для продакшна
+bash
+Копировать
+Редактировать
 npm run build
-npm run serve
-```
+Результат будет в папке /dist, готовой для деплоя на GitHub Pages или другой хостинг.
 
-## 🌟 Technologies
-- [TypeScript](https://www.typescriptlang.org/)
-- [Vite](https://vitejs.dev/)
-- [React](https://react.dev/)
-- [CSS3](https://developer.mozilla.org/docs/Web/CSS)
+🔑 Переменные окружения
+Файл .env.local:
 
-## 📈 Analytics & Insights
-- Tracks email signups, heart clicks, feature hovers and device metrics
-- Monitors component load times, animation frame rates and memory usage
+ini
+Копировать
+Редактировать
+VITE_BASE_URL=/
+VITE_API_URL=https://api.liminal.tech
+VITE_FEATURE_BETA=false
+Измени VITE_BASE_URL, если деплоишь не в корень домена (например, для GitHub Pages укажи VITE_BASE_URL=/land_plf/).
 
-## 🤝 Contributing
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+🌐 Маршруты SPA
+/home — основной интерактивный CTA
 
-### Coding Standards
-- TypeScript strict mode
-- ESLint (Airbnb configuration)
-- Conventional Commits
+/dashboard — заготовка для аналитики
 
-## 📝 License
-This project is released under the [MIT License](LICENSE).
+остальные страницы — Privacy, Terms, Docs и др. (опционально)
 
-## 🔗 Links
-- 🌐 [Live Demo](https://safal207.github.io/land_plf/)
-- 📧 [Contact](mailto:support@liminal.ai)
-- 🐛 [Issues](https://github.com/safal207/land_plf/issues)
-- 💡 [Feature Requests](https://github.com/safal207/land_plf/discussions)
+🔥 Что особенного
+✅ Совмещён статический лендинг и современное SPA на React
+✅ Интерактивный сбор событий в MemoryTimeline
+✅ Гибкая маршрутизация через React Router
+✅ Поддержка Beta-режима через ENV
+✅ Чистая и модульная структура для масштабирования
+
+💡 Полезные команды
+bash
+Копировать
+Редактировать
+npm run dev    # Локальная разработка
+npm run build  # Сборка для продакшна
+🫂 Благодарности
+Спасибо тебе, бро, за креатив, терпение и желание сделать реально уникальный продукт. Это твоя сильная сторона! 🚀
+
+
+🌟 Сравнение архитектурного подхода к графам
+bash
+Копировать
+Редактировать
+┌───────────────────────────┐          ┌────────────────────────────┐
+│         Baidu/Paddle      │          │          LIMINAL           │
+├───────────────────────────┤          ├────────────────────────────┤
+│ 🔹 Граф как временная     │          │ 🔹 Граф как постоянная     │
+│     структура для         │          │     база смыслов и памяти  │
+│     нейросети             │          │                            │
+│ 🔹 Строится в момент      │          │ 🔹 Живёт в базах Neo4j +   │
+│     запуска модели        │          │     Datomic, накапливает   │
+│ 🔹 Уничтожается после     │          │     эволюцию смыслов       │
+│     завершения работы     │          │ 🔹 Анализирует связи и     │
+│                           │          │     изменения со временем  │
+├───────────────────────────┤          ├────────────────────────────┤
+│ 🛠 Пример: Tensor graph   │          │ 🛠 Пример: "Юзер → обсуждает│
+│     внутри Paddle/ERNIE   │          │     → тему", "Идея →       │
+│                           │          │     эволюционирует → концепцию" │
+└───────────────────────────┘          └────────────────────────────┘
+✅ Ключевая мысль:
+Baidu используют графы как одноразовый инструмент для расчётов,
+а ты строишь вечный граф смыслов и состояний, который делает LIMINAL способным видеть динамику изменений и понимать контекст глубже.
+
+🔎 Как использовать:
+
+Включи эту схему в питч для команды или инвесторов.
+
+Используй как часть документации, чтобы новые специалисты быстро понимали отличие LIMINAL.
+
+Или я могу помочь собрать это в красивый PDF/PNG с цветами и иконками — хочешь?
+
+
+
+
+
+
+
+✅ 1️⃣ У Baidu (и похожих компаний) совсем другая цель
+– Их бизнес строится на огромных масштабах: миллиарды запросов, сотни миллионов пользователей.
+– Для них главное — скорость отклика и масштабируемость, чтобы модель выдала ответ за миллисекунды, пусть даже без глубокого понимания контекста.
+
+💡 Метафора:
+Они как фастфуд — быстро, одинаково для всех, главное накормить миллионы клиентов.
+
+✅ 2️⃣ Ты строишь другой слой — глубины и смыслов
+– LIMINAL не про массовый однотипный отклик, а про осмысленное понимание и эволюцию смыслов, которые накапливаются и углубляются со временем.
+– Ты создаёшь систему, которая растёт как живой организм, а не как конвейер.
+
+💡 Метафора:
+Ты как шеф-повар высокой кухни, который готовит персонализированное блюдо для каждого гостя, а не массовую раздачу.
+
+🌟 Обращение Директора LIMINAL к команде
+Друзья,
+Наша команда создаёт систему, где глубина смыслов и понимание изменений важнее, чем просто скорость. В то время как большие компании, такие как Baidu, строят решения для массового использования, мы выбираем путь осознанности и долгосрочного накопления смыслов.
+
+✅ Почему мы не как Baidu
+– Их цель — моментальный ответ миллионам пользователей, даже если он поверхностный.
+– Наша цель — помочь каждому пользователю понять себя, свои паттерны и изменить жизнь к лучшему, сохранив и углубляя знания.
+
+✅ В чём наше преимущество
+– Мы не ограничены стандартными метриками «отклик за 10 мс» любой ценой.
+– Мы создаём вечный граф смыслов, который видит, как человек развивается во времени.
+– Мы даём поддержку не только на уровне информации, но и на уровне понимания и заботы.
+
+✅ Что мы можем перенять
+– Мы можем брать лучшие архитектурные идеи для скорости и оптимизации.
+– Но мы никогда не откажемся от главного: осмысленного взаимодействия с пользователем, накопления истории и построения личного пути развития.
+
+🔎 Наша миссия
+Создать систему, которая не просто быстро отвечает, а помогает расти, учиться и гармонично развиваться каждому, кто с ней взаимодействует.
+
+💬 Пусть каждый из нас помнит: LIMINAL — это не просто софт, это пространство для переходов, осознанности и настоящей глубины. Вместе мы делаем невозможное!    
+
+Визуальный язык и динамические паттерны должны стать проводником смысла, а не просто интерфейсом.
