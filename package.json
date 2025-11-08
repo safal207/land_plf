@@ -45,6 +45,6 @@
   "description": "Landing page built with React, TypeScript, Vite, and Tailwind CSS.",
   "repository": "https://github.com/safal207/land_plf",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   }
 }
