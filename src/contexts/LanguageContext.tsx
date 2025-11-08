@@ -27,16 +27,26 @@ export const useLanguage = () => {
 export function LanguageSwitcher() {
   const { lang, setLang } = useLanguage();
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-1 sm:gap-2">
       <button
-        className={`px-3 py-1 rounded-l-lg ${lang === 'ru' ? 'bg-cyan-600 text-white' : 'bg-slate-700 text-cyan-400'}`}
+        className={`px-2 py-1 sm:px-3 rounded-l-lg text-xs sm:text-sm font-medium transition-colors ${
+          lang === 'ru' 
+            ? 'bg-cyan-600 text-white' 
+            : 'bg-slate-700 text-cyan-400 hover:bg-slate-600'
+        }`}
         onClick={() => setLang('ru')}
+        aria-label="Switch to Russian"
       >
         RU
       </button>
       <button
-        className={`px-3 py-1 rounded-r-lg ${lang === 'en' ? 'bg-cyan-600 text-white' : 'bg-slate-700 text-cyan-400'}`}
+        className={`px-2 py-1 sm:px-3 rounded-r-lg text-xs sm:text-sm font-medium transition-colors ${
+          lang === 'en' 
+            ? 'bg-cyan-600 text-white' 
+            : 'bg-slate-700 text-cyan-400 hover:bg-slate-600'
+        }`}
         onClick={() => setLang('en')}
+        aria-label="Switch to English"
       >
         EN
       </button>

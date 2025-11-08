@@ -157,56 +157,56 @@ export default function SystemStatus() {
   const overallStatus = getOverallStatus(services);
 
   return (
-    <div className="container mx-auto px-2 sm:px-6 py-8 max-w-6xl">
-      <div className="mb-8 text-center">
-        <h1 className="text-2xl sm:text-4xl font-bold text-cyan-400 mb-4">{translations[lang].pageTitle}</h1>
-        <p className="text-slate-400 text-lg">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 max-w-6xl">
+      <div className="mb-8 sm:mb-10 text-center">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-cyan-400 mb-3 sm:mb-4">{translations[lang].pageTitle}</h1>
+        <p className="text-slate-400 text-sm sm:text-base md:text-lg px-2">
           {translations[lang].pageSubtitle}
         </p>
       </div>
 
       {/* Overall Status */}
-      <div className={`mb-8 rounded-lg p-6 border ${getStatusColor(overallStatus)}`}>
-        <div className="flex items-center justify-between">
+      <div className={`mb-6 sm:mb-8 rounded-lg p-4 sm:p-6 border ${getStatusColor(overallStatus)}`}>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center space-x-3">
-            <div className="text-3xl">{getStatusIcon(overallStatus)}</div>
+            <div className="text-2xl sm:text-3xl">{getStatusIcon(overallStatus)}</div>
             <div>
-              <h2 className="text-2xl font-semibold">
+              <h2 className="text-xl sm:text-2xl font-semibold">
                 {getStatusText(lang, overallStatus)}
               </h2>
-              <p className="text-slate-300">{translations[lang].lastUpdate}</p>
+              <p className="text-slate-300 text-sm sm:text-base">{translations[lang].lastUpdate}</p>
             </div>
           </div>
-          <div className="text-right">
-            <div className="text-2xl font-bold text-green-400">99.8%</div>
-            <div className="text-green-300 text-sm">{translations[lang].overallUptime}</div>
+          <div className="text-left sm:text-right w-full sm:w-auto">
+            <div className="text-2xl sm:text-3xl font-bold text-green-400">99.8%</div>
+            <div className="text-green-300 text-xs sm:text-sm">{translations[lang].overallUptime}</div>
           </div>
         </div>
       </div>
 
       {/* Services Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
         {services.map((service) => (
           <div key={service.key} className="bg-slate-800/50 rounded-lg p-4 sm:p-6">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center space-x-3">
-                <span className="text-2xl">{getStatusIcon(service.status)}</span>
-                <h3 className="text-xl font-semibold text-white">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-3">
+              <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
+                <span className="text-xl sm:text-2xl flex-shrink-0">{getStatusIcon(service.status)}</span>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white truncate">
                   {translations[lang].serviceNames[service.key as keyof typeof translations['ru']['serviceNames']]}
                 </h3>
               </div>
-              <div className={`px-3 py-1 rounded-full border text-sm font-medium ${getStatusColor(service.status)}`}>
+              <div className={`px-2 sm:px-3 py-1 rounded-full border text-xs sm:text-sm font-medium whitespace-nowrap ${getStatusColor(service.status)}`}>
                 {getStatusText(lang, service.status as ServiceStatus)}
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-slate-700/50 rounded-lg p-3">
-                <div className="text-slate-400 text-sm">{translations[lang].uptime}</div>
-                <div className="text-white font-medium">{service.uptime}</div>
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              <div className="bg-slate-700/50 rounded-lg p-2 sm:p-3">
+                <div className="text-slate-400 text-xs sm:text-sm mb-1">{translations[lang].uptime}</div>
+                <div className="text-white font-medium text-sm sm:text-base">{service.uptime}</div>
               </div>
-              <div className="bg-slate-700/50 rounded-lg p-3">
-                <div className="text-slate-400 text-sm">{translations[lang].responseTime}</div>
-                <div className="text-white font-medium">{service.responseTime}</div>
+              <div className="bg-slate-700/50 rounded-lg p-2 sm:p-3">
+                <div className="text-slate-400 text-xs sm:text-sm mb-1">{translations[lang].responseTime}</div>
+                <div className="text-white font-medium text-sm sm:text-base">{service.responseTime}</div>
               </div>
             </div>
           </div>
@@ -214,61 +214,61 @@ export default function SystemStatus() {
       </div>
 
       {/* Incidents */}
-      <div className="space-y-6">
-        <h2 className="text-2xl font-semibold text-white">{translations[lang].incidentsTitle}</h2>
+      <div className="mt-8 sm:mt-10 space-y-4 sm:space-y-6">
+        <h2 className="text-xl sm:text-2xl font-semibold text-white">{translations[lang].incidentsTitle}</h2>
         <div className="space-y-4">
-          <div className="bg-slate-800/50 rounded-lg p-6">
-            <div className="flex items-start space-x-4">
-              <div className="text-2xl">{getStatusIcon('maintenance')}</div>
-              <div className="flex-1">
-                <div className="flex items-center space-x-3 mb-2">
-                  <h3 className="text-lg font-medium text-white break-words">{translations[lang].maintenanceTitle}</h3>
-                  <span className="px-2 py-1 bg-blue-900/20 border border-blue-500/30 text-blue-400 text-xs rounded">{translations[lang].maintenanceStatus}</span>
+          <div className="bg-slate-800/50 rounded-lg p-4 sm:p-6">
+            <div className="flex items-start space-x-3 sm:space-x-4">
+              <div className="text-xl sm:text-2xl flex-shrink-0">{getStatusIcon('maintenance')}</div>
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+                  <h3 className="text-base sm:text-lg font-medium text-white break-words">{translations[lang].maintenanceTitle}</h3>
+                  <span className="px-2 py-1 bg-blue-900/20 border border-blue-500/30 text-blue-400 text-xs rounded whitespace-nowrap w-fit">{translations[lang].maintenanceStatus}</span>
                 </div>
-                <p className="text-slate-400 text-sm mb-3">
+                <p className="text-slate-400 text-xs sm:text-sm mb-3">
                   {translations[lang].maintenanceDesc}
                 </p>
-                <div className="flex items-center space-x-4 text-xs text-slate-500">
-                  <span>{translations[lang].maintenanceStarted}</span>
-                  <span>{translations[lang].maintenanceExpected}</span>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs text-slate-500">
+                  <span className="break-words">{translations[lang].maintenanceStarted}</span>
+                  <span className="break-words">{translations[lang].maintenanceExpected}</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-slate-800/50 rounded-lg p-6">
-            <div className="flex items-start space-x-4">
-              <div className="text-2xl">{getStatusIcon('degraded')}</div>
-              <div className="flex-1">
-                <div className="flex items-center space-x-3 mb-2">
-                  <h3 className="text-lg font-medium text-white break-words">{translations[lang].billingTitle}</h3>
-                  <span className="px-2 py-1 bg-yellow-900/20 border border-yellow-500/30 text-yellow-400 text-xs rounded">{translations[lang].billingStatus}</span>
+          <div className="bg-slate-800/50 rounded-lg p-4 sm:p-6">
+            <div className="flex items-start space-x-3 sm:space-x-4">
+              <div className="text-xl sm:text-2xl flex-shrink-0">{getStatusIcon('degraded')}</div>
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+                  <h3 className="text-base sm:text-lg font-medium text-white break-words">{translations[lang].billingTitle}</h3>
+                  <span className="px-2 py-1 bg-yellow-900/20 border border-yellow-500/30 text-yellow-400 text-xs rounded whitespace-nowrap w-fit">{translations[lang].billingStatus}</span>
                 </div>
-                <p className="text-slate-400 text-sm mb-3">
+                <p className="text-slate-400 text-xs sm:text-sm mb-3">
                   {translations[lang].billingDesc}
                 </p>
-                <div className="flex items-center space-x-4 text-xs text-slate-500">
-                  <span>{translations[lang].billingDetected}</span>
-                  <span>{translations[lang].billingUpdated}</span>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs text-slate-500">
+                  <span className="break-words">{translations[lang].billingDetected}</span>
+                  <span className="break-words">{translations[lang].billingUpdated}</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-slate-800/50 rounded-lg p-6">
-            <div className="flex items-start space-x-4">
-              <div className="text-2xl">{getStatusIcon('operational')}</div>
-              <div className="flex-1">
-                <div className="flex items-center space-x-3 mb-2">
-                  <h3 className="text-lg font-medium text-white break-words">{translations[lang].apiRestoredTitle}</h3>
-                  <span className="px-2 py-1 bg-green-900/20 border border-green-500/30 text-green-400 text-xs rounded">{translations[lang].apiRestoredStatus}</span>
+          <div className="bg-slate-800/50 rounded-lg p-4 sm:p-6">
+            <div className="flex items-start space-x-3 sm:space-x-4">
+              <div className="text-xl sm:text-2xl flex-shrink-0">{getStatusIcon('operational')}</div>
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+                  <h3 className="text-base sm:text-lg font-medium text-white break-words">{translations[lang].apiRestoredTitle}</h3>
+                  <span className="px-2 py-1 bg-green-900/20 border border-green-500/30 text-green-400 text-xs rounded whitespace-nowrap w-fit">{translations[lang].apiRestoredStatus}</span>
                 </div>
-                <p className="text-slate-400 text-sm mb-3">
+                <p className="text-slate-400 text-xs sm:text-sm mb-3">
                   {translations[lang].apiRestoredDesc}
                 </p>
-                <div className="flex items-center space-x-4 text-xs text-slate-500">
-                  <span>{translations[lang].apiRestoredStarted}</span>
-                  <span>{translations[lang].apiRestoredResolved}</span>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs text-slate-500">
+                  <span className="break-words">{translations[lang].apiRestoredStarted}</span>
+                  <span className="break-words">{translations[lang].apiRestoredResolved}</span>
                 </div>
               </div>
             </div>
@@ -277,42 +277,42 @@ export default function SystemStatus() {
       </div>
 
       {/* Metrics */}
-      <div className="mt-12">
-        <h2 className="text-2xl font-semibold text-white mb-6">{translations[lang].metricsTitle}</h2>
-        <div className="grid md:grid-cols-4 gap-6">
-          <div className="bg-slate-800/50 rounded-lg p-6 text-center">
-            <div className="text-3xl font-bold text-cyan-400 mb-2">2.4M</div>
-            <div className="text-slate-400">{translations[lang].metric1}</div>
+      <div className="mt-8 sm:mt-10 md:mt-12">
+        <h2 className="text-xl sm:text-2xl font-semibold text-white mb-4 sm:mb-6">{translations[lang].metricsTitle}</h2>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="bg-slate-800/50 rounded-lg p-4 sm:p-6 text-center">
+            <div className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-2">2.4M</div>
+            <div className="text-slate-400 text-xs sm:text-sm">{translations[lang].metric1}</div>
           </div>
-          <div className="bg-slate-800/50 rounded-lg p-6 text-center">
-            <div className="text-3xl font-bold text-green-400 mb-2">45ms</div>
-            <div className="text-slate-400">{translations[lang].metric2}</div>
+          <div className="bg-slate-800/50 rounded-lg p-4 sm:p-6 text-center">
+            <div className="text-2xl sm:text-3xl font-bold text-green-400 mb-2">45ms</div>
+            <div className="text-slate-400 text-xs sm:text-sm">{translations[lang].metric2}</div>
           </div>
-          <div className="bg-slate-800/50 rounded-lg p-6 text-center">
-            <div className="text-3xl font-bold text-pink-400 mb-2">99.8%</div>
-            <div className="text-slate-400">{translations[lang].metric3}</div>
+          <div className="bg-slate-800/50 rounded-lg p-4 sm:p-6 text-center">
+            <div className="text-2xl sm:text-3xl font-bold text-pink-400 mb-2">99.8%</div>
+            <div className="text-slate-400 text-xs sm:text-sm">{translations[lang].metric3}</div>
           </div>
-          <div className="bg-slate-800/50 rounded-lg p-6 text-center">
-            <div className="text-3xl font-bold text-yellow-400 mb-2">156</div>
-            <div className="text-slate-400">{translations[lang].metric4}</div>
+          <div className="bg-slate-800/50 rounded-lg p-4 sm:p-6 text-center">
+            <div className="text-2xl sm:text-3xl font-bold text-yellow-400 mb-2">156</div>
+            <div className="text-slate-400 text-xs sm:text-sm">{translations[lang].metric4}</div>
           </div>
         </div>
       </div>
 
       {/* Subscribe to Updates */}
-      <div className="mt-12 bg-gradient-to-r from-cyan-900/20 to-pink-900/20 border border-cyan-500/30 rounded-lg p-8">
+      <div className="mt-8 sm:mt-10 md:mt-12 bg-gradient-to-r from-cyan-900/20 to-pink-900/20 border border-cyan-500/30 rounded-lg p-6 sm:p-8">
         <div className="text-center">
-          <h3 className="text-2xl font-semibold text-cyan-400 mb-4">{translations[lang].subscribeTitle}</h3>
-          <p className="text-slate-300 mb-6">
+          <h3 className="text-xl sm:text-2xl font-semibold text-cyan-400 mb-3 sm:mb-4">{translations[lang].subscribeTitle}</h3>
+          <p className="text-slate-300 text-sm sm:text-base mb-4 sm:mb-6 px-2">
             {translations[lang].subscribeDesc}
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto px-2">
             <input
               type="email"
               placeholder={translations[lang].subscribePlaceholder}
-              className="flex-1 px-3 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 text-base"
+              className="flex-1 px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 text-sm sm:text-base"
             />
-            <button className="w-full sm:w-auto bg-gradient-to-r from-cyan-600 to-pink-600 hover:from-cyan-700 hover:to-pink-700 text-white font-semibold rounded-lg px-4 py-3 transition-all duration-200">
+            <button className="w-full sm:w-auto bg-gradient-to-r from-cyan-600 to-pink-600 hover:from-cyan-700 hover:to-pink-700 text-white font-semibold rounded-lg px-6 py-3 transition-all duration-200 text-sm sm:text-base">
               {translations[lang].subscribeButton}
             </button>
           </div>
