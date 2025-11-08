@@ -1,82 +1,158 @@
-# React + TypeScript + Vite
+🚀 LIMINAL Project
+Миссия: Помогать людям переходить от тревоги к ясности, соединяя их с внутренним навигатором через интерактивное приложение LIMINAL.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Installation
-
-Before running any scripts, install the project dependencies:
-
-```bash
+📁 Структура проекта
+bash
+Копировать
+Редактировать
+land_plf/
+├─ index.html          # старый английский лендинг (сохранили как исторический артефакт)
+├─ landing.html        # новый лендинг, основанный на твоём дизайне
+├─ .env.local          # настройки BASE_URL, API_URL, режим Beta
+├─ vite.config.ts      # Vite config с поддержкой BASE_URL из .env
+├─ package.json        # зависимости проекта
+├─ /src
+│  ├─ main.tsx         # точка входа React с BrowserRouter
+│  ├─ App.tsx          # маршруты /home, /dashboard и др.
+│  ├─ /pages
+│  │  ├─ Home.tsx      # основная страница CTA с валидацией email, Beta режимом и логами
+│  │  └─ Dashboard.tsx # заготовка для будущей панели управления
+│  ├─ /components
+│  │  ├─ MemoryTimeline.tsx
+│  │  └─ InsightLog.tsx
+│  ├─ /memory
+│  │  ├─ moment.ts, transition.ts, insight.ts, memoryStore.ts
+│  └─ /styles
+│     └─ styles.css
+└─ /dist               # директория для финальной сборки Vite
+⚙️ Установка
+bash
+Копировать
+Редактировать
+# Установить зависимости
 npm install
-```
+🚀 Запуск в разработке
+bash
+Копировать
+Редактировать
+# Запустить локальный dev-сервер
+npm run dev
+По умолчанию сайт будет доступен по адресу: http://localhost:5174
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-  ...reactDom.configs.recommended.rules,
-  },
-})
-```
-
-## Build and Serve
-
-Run the build command to create the production output:
-
-```bash
+🛠 Сборка для продакшна
+bash
+Копировать
+Редактировать
 npm run build
-```
+Результат будет в папке /dist, готовой для деплоя на GitHub Pages или другой хостинг.
 
-Afterwards you can preview the built site locally:
+🔑 Переменные окружения
+Файл .env.local:
 
-```bash
-npm run serve
-```
+ini
+Копировать
+Редактировать
+VITE_BASE_URL=/
+VITE_API_URL=https://api.liminal.tech
+VITE_FEATURE_BETA=false
+Измени VITE_BASE_URL, если деплоишь не в корень домена (например, для GitHub Pages укажи VITE_BASE_URL=/land_plf/).
 
-This serves the `dist` directory on port `4173`.
+🌐 Маршруты SPA
+/home — основной интерактивный CTA
 
-## License
+/dashboard — заготовка для аналитики
 
-This project is released under the [MIT License](LICENSE).
+остальные страницы — Privacy, Terms, Docs и др. (опционально)
+
+🔥 Что особенного
+✅ Совмещён статический лендинг и современное SPA на React
+✅ Интерактивный сбор событий в MemoryTimeline
+✅ Гибкая маршрутизация через React Router
+✅ Поддержка Beta-режима через ENV
+✅ Чистая и модульная структура для масштабирования
+
+💡 Полезные команды
+bash
+Копировать
+Редактировать
+npm run dev    # Локальная разработка
+npm run build  # Сборка для продакшна
+🫂 Благодарности
+Спасибо тебе, бро, за креатив, терпение и желание сделать реально уникальный продукт. Это твоя сильная сторона! 🚀
+
+
+🌟 Сравнение архитектурного подхода к графам
+bash
+Копировать
+Редактировать
+┌───────────────────────────┐          ┌────────────────────────────┐
+│         Baidu/Paddle      │          │          LIMINAL           │
+├───────────────────────────┤          ├────────────────────────────┤
+│ 🔹 Граф как временная     │          │ 🔹 Граф как постоянная     │
+│     структура для         │          │     база смыслов и памяти  │
+│     нейросети             │          │                            │
+│ 🔹 Строится в момент      │          │ 🔹 Живёт в базах Neo4j +   │
+│     запуска модели        │          │     Datomic, накапливает   │
+│ 🔹 Уничтожается после     │          │     эволюцию смыслов       │
+│     завершения работы     │          │ 🔹 Анализирует связи и     │
+│                           │          │     изменения со временем  │
+├───────────────────────────┤          ├────────────────────────────┤
+│ 🛠 Пример: Tensor graph   │          │ 🛠 Пример: "Юзер → обсуждает│
+│     внутри Paddle/ERNIE   │          │     → тему", "Идея →       │
+│                           │          │     эволюционирует → концепцию" │
+└───────────────────────────┘          └────────────────────────────┘
+✅ Ключевая мысль:
+Baidu используют графы как одноразовый инструмент для расчётов,
+а ты строишь вечный граф смыслов и состояний, который делает LIMINAL способным видеть динамику изменений и понимать контекст глубже.
+
+🔎 Как использовать:
+
+Включи эту схему в питч для команды или инвесторов.
+
+Используй как часть документации, чтобы новые специалисты быстро понимали отличие LIMINAL.
+
+Или я могу помочь собрать это в красивый PDF/PNG с цветами и иконками — хочешь?
+
+
+
+
+
+
+
+✅ 1️⃣ У Baidu (и похожих компаний) совсем другая цель
+– Их бизнес строится на огромных масштабах: миллиарды запросов, сотни миллионов пользователей.
+– Для них главное — скорость отклика и масштабируемость, чтобы модель выдала ответ за миллисекунды, пусть даже без глубокого понимания контекста.
+
+💡 Метафора:
+Они как фастфуд — быстро, одинаково для всех, главное накормить миллионы клиентов.
+
+✅ 2️⃣ Ты строишь другой слой — глубины и смыслов
+– LIMINAL не про массовый однотипный отклик, а про осмысленное понимание и эволюцию смыслов, которые накапливаются и углубляются со временем.
+– Ты создаёшь систему, которая растёт как живой организм, а не как конвейер.
+
+💡 Метафора:
+Ты как шеф-повар высокой кухни, который готовит персонализированное блюдо для каждого гостя, а не массовую раздачу.
+
+🌟 Обращение Директора LIMINAL к команде
+Друзья,
+Наша команда создаёт систему, где глубина смыслов и понимание изменений важнее, чем просто скорость. В то время как большие компании, такие как Baidu, строят решения для массового использования, мы выбираем путь осознанности и долгосрочного накопления смыслов.
+
+✅ Почему мы не как Baidu
+– Их цель — моментальный ответ миллионам пользователей, даже если он поверхностный.
+– Наша цель — помочь каждому пользователю понять себя, свои паттерны и изменить жизнь к лучшему, сохранив и углубляя знания.
+
+✅ В чём наше преимущество
+– Мы не ограничены стандартными метриками «отклик за 10 мс» любой ценой.
+– Мы создаём вечный граф смыслов, который видит, как человек развивается во времени.
+– Мы даём поддержку не только на уровне информации, но и на уровне понимания и заботы.
+
+✅ Что мы можем перенять
+– Мы можем брать лучшие архитектурные идеи для скорости и оптимизации.
+– Но мы никогда не откажемся от главного: осмысленного взаимодействия с пользователем, накопления истории и построения личного пути развития.
+
+🔎 Наша миссия
+Создать систему, которая не просто быстро отвечает, а помогает расти, учиться и гармонично развиваться каждому, кто с ней взаимодействует.
+
+💬 Пусть каждый из нас помнит: LIMINAL — это не просто софт, это пространство для переходов, осознанности и настоящей глубины. Вместе мы делаем невозможное!    
+
+Визуальный язык и динамические паттерны должны стать проводником смысла, а не просто интерфейсом.

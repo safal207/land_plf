@@ -19,3 +19,222 @@ SerializationVersion: 1.1.0.1
 Transcript started, output file is ./deploy-log-20250626-120834.txt
 📦 [1/6] Проверка статуса Git...
 
+🧹 [2/6] Чистим старые билды...
+🔨 [3/6] Сборка проекта...
+
+📁 Содержимое папки dist :
+
+Name       Length
+----       ------
+index.html  63427
+vite.svg     1497
+
+
+📄 [4/6] Копируем index.html → 404.html...
+✅ 404.html создан
+💾 [5/6] Сохраняем текущую ветку и стэшим изменения...
+
+
+PS>TerminatingError(): "Конвейерная обработка была остановлена."
+>> TerminatingError(): "Конвейерная обработка была остановлена."
+>> TerminatingError(): "Конвейерная обработка была остановлена."
+]633;D;1]633;A]633;P;Cwd=C:\x5cUsers\x5csafal\x5cOneDrive\x5cDocumente\x5cGitHub\x5cland_plfPS C:\Users\safal\OneDrive\Documente\GitHub\land_plf> ]633;B
+PS>.\check-build.ps1
+At C:\Users\safal\OneDrive\Documente\GitHub\land_plf\check-build.ps1:135 char:34
++ Write-Host "`nâœ… Ð”Ð¸Ð°Ð³Ð½Ð¾ÑÑ‚Ð¸ÐºÐ° Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð°"
++                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The string is missing the terminator: '.
+    + CategoryInfo          : ParserError: (:) [], ParseException
+    + FullyQualifiedErrorId : TerminatorExpectedAtEndOfString
+At C:\Users\safal\OneDrive\Documente\GitHub\land_plf\check-build.ps1:135 char:34
++ Write-Host "`nâœ… Ð”Ð¸Ð°Ð³Ð½Ð¾ÑÑ‚Ð¸ÐºÐ° Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð°"
++                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The string is missing the terminator: '.
+    + CategoryInfo          : ParserError: (:) [], ParseException
+    + FullyQualifiedErrorId : TerminatorExpectedAtEndOfString
+
+]633;D;1]633;A]633;P;Cwd=C:\x5cUsers\x5csafal\x5cOneDrive\x5cDocumente\x5cGitHub\x5cland_plfPS C:\Users\safal\OneDrive\Documente\GitHub\land_plf> ]633;B
+PS>.\check-build.ps1
+🔍 Анализируем содержимое сборки...
+
+🔨 Пересобираем проект...
+
+
+📁 Полное содержимое dist:
+
+Name       Length FullName
+----       ------ --------
+index.html  63427 C:\Users\safal\OneDrive\Documente\GitHub\land_plf\dist\index.html
+vite.svg     1497 C:\Users\safal\OneDrive\Documente\GitHub\land_plf\dist\vite.svg
+
+
+
+📄 Анализируем index.html...
+Размер index.html: 63427 символов
+
+🎨 CSS ссылки в HTML:
+  ❌ Внешние CSS ссылки не найдены
+
+📜 JS скрипты в HTML:
+  ❌ Внешние JS скрипты не найдены
+
+💅 Встроенные стили:
+  ✅ Найдено 2 блоков стилей (общий размер: 33375 символов)
+
+⚡ Встроенные скрипты:
+  ✅ Найдено 2 блоков скриптов (общий размер: 10609 символов)
+
+⚙️ Конфигурация Vite:
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import svgr from 'vite-plugin-svgr'
+
+
+export default defineConfig({
+  base: '/land_plf/',
+  plugins: [react(), svgr()],
+  server: {
+    port: 5174,
+    host: true
+  }
+})
+
+💡 АНАЛИЗ:
+✅ Все ресурсы встроены в HTML (это нормально для небольших проектов)
+
+🧪 Пробуем сборку с настройками для production...
+Собираем с настройками принудительного создания assets...
+
+
+📁 Результат с новым конфигом:
+
+Name       Length FullName
+----       ------ --------
+index.html  63427 C:\Users\safal\OneDrive\Documente\GitHub\land_plf\dist\index.html
+vite.svg     1497 C:\Users\safal\OneDrive\Documente\GitHub\land_plf\dist\vite.svg
+
+
+
+✅ Диагностика завершена
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5csafal\x5cOneDrive\x5cDocumente\x5cGitHub\x5cland_plfPS C:\Users\safal\OneDrive\Documente\GitHub\land_plf> ]633;B
+PS>.\check-build.ps1
+🚀 Деплоим LIMINAL на GitHub Pages...
+🔨 Сборка...
+
+✅ 404.html создан
+
+
+
+
+
+
+✅ ДЕПЛОЙ ГОТОВ!
+🌐 Ссылка: https://safal207.github.io/land_plf
+⏱️ Подожди 2-3 минуты и проверь сайт
+
+    ✧･ﾟ: *✧･ﾟ:*  LIMINAL PORTAL OPEN  *:･ﾟ✧*:･ﾟ✧
+            🔮 Добро пожаловать в Ноосферу 🔮
+    ✧･ﾟ: *✧･ﾟ:*        *:･ﾟ✧*:･ﾟ✧
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5csafal\x5cOneDrive\x5cDocumente\x5cGitHub\x5cland_plfPS C:\Users\safal\OneDrive\Documente\GitHub\land_plf> ]633;B
+PS>.\fix-404.ps1
+🔧 Исправляем 404 ошибку...
+
+📋 Текущий vite.config.ts:
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import svgr from 'vite-plugin-svgr'
+
+
+export default defineConfig({
+  base: '/land_plf/',
+  plugins: [react(), svgr()],
+  server: {
+    port: 5174,
+    host: true
+  }
+})
+
+🔧 Создаем исправленный vite.config.ts...
+✅ vite.config.ts обновлен
+
+🔨 Пересобираем с новой конфигурацией...
+
+
+📝 Создаем .nojekyll файл...
+✅ 404.html создан
+
+📁 Содержимое dist:
+
+Name       Length
+----       ------
+.nojekyll       5
+404.html    63427
+index.html  63427
+vite.svg     1497
+
+
+
+🚀 Деплоим исправленную версию...
+
+
+
+
+
+
+
+✅ ДЕПЛОЙ ЗАВЕРШЕН!
+🌐 Проверь через 2-3 минуты: https://safal207.github.io/land_plf
+🔧 Исправление: изменили base на './' для относительных путей
+
+🧪 АЛЬТЕРНАТИВА: Если все еще 404, попробуй:
+1. Иди в Settings > Pages на GitHub
+2. Измени Source на 'GitHub Actions'
+3. Или убедись что Branch = gh-pages и folder = / (root)
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5csafal\x5cOneDrive\x5cDocumente\x5cGitHub\x5cland_plfPS C:\Users\safal\OneDrive\Documente\GitHub\land_plf> ]633;B
+PS>.\check-build.ps1
+🔍 Проверяем статус деплоя GitHub Pages...
+
+📁 Проверяем ветку gh-pages...
+
+64aad008a40b074c7b610c588b556de828cc019a	refs/heads/gh-pages
+✅ Ветка gh-pages существует
+
+📝 Последний коммит в gh-pages:
+
+
+📋 Файлы в ветке gh-pages:
+
+
+📊 Размеры файлов:
+
+📄 index.html: 50459 байт
+
+🌐 Проверяем доступность сайта...
+🔗 URL: https://safal207.github.io/land_plf
+✅ Сайт отвечает! Код: 200
+
+⏰ Время последнего деплоя:
+📅 2025-06-25 23:23:17 +0300
+⏱️ 778.1 минут назад
+⚠️ Прошло больше 10 минут - возможна проблема
+
+💡 РЕКОМЕНДАЦИИ:
+1. Подожди 5-10 минут после деплоя
+2. Попробуй открыть в инкогнито/приватном режиме
+3. Очисти кеш браузера (Ctrl+F5)
+4. Проверь Settings > Pages на GitHub
+
+🔧 ЕСЛИ ВСЕ ЕЩЕ НЕ РАБОТАЕТ:
+1. Проверь: https://github.com/safal207/land_plf/settings/pages
+2. Убедись что GitHub Actions не включены
+3. Попробуй переключить Source на GitHub Actions и обратно
+
+🎯 Прямая ссылка на настройки:
+https://github.com/safal207/land_plf/settings/pages
+
+🌐 Открываем сайт в браузере...
+
+✅ Диагностика завершена
+
+
+]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5csafal\x5cOneDrive\x5cDocumente\x5cGitHub\x5cland_plfPS C:\Users\safal\OneDrive\Documente\GitHub\land_plf> ]633;B

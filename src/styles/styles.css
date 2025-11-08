@@ -124,7 +124,6 @@ body {
   z-index: 10;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 /* Live Clock */
@@ -621,14 +620,21 @@ body {
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Fade In Up */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.fade-in-up.delay-300 {
+  animation-delay: 0.3s;
 }
 
 /* Responsive design */
@@ -665,11 +671,59 @@ body {
   }
 }
 
-@media (min-width: 640px) {
-  .cta-form {
-    flex-direction: row;
+@media (max-width: 640px) {
+  .dashboard-content {
+    padding: 12px !important;
   }
-  .cta-input {
-    flex: 1;
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    background: #1a1a1a;
+    padding: 10px 0;
+    width: 100%;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.memory-entry {
+  padding: 0.5rem;
+  border-left: 3px solid #a5b4fc; /* фиолетовая линия слева */
+  margin-bottom: 0.5rem;
+  color: #e0f2fe; /* светло-голубой текст */
+  font-size: 0.95rem;
+}
+
+.insight-log {
+  margin-top: 2rem;
+  background: rgba(30, 41, 59, 0.3); /* полупрозрачный фон */
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.insight-log ul li {
+  color: #facc15; /* жёлтый акцент для инсайтов */
+  margin-bottom: 0.5rem;
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1);}
+  25% { transform: scale(1.15);}
+  50% { transform: scale(0.95);}
+  75% { transform: scale(1.1);}
+}
+.animate-beat {
+  animation: beat 0.6s;
+}
+

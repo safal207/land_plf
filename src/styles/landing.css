@@ -1,0 +1,143 @@
+/* Общие стили для body (если еще нет) */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  background-color: #000; /* Черный фон, как на скриншоте */
+  color: #fff; /* Белый текст по умолчанию */
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Минимальная высота на весь экран */
+}
+
+/* Стили для HEADER */
+.main-header {
+  background-color: #1a1a1a; /* Темный фон для шапки */
+  padding: 15px 30px;
+  border-bottom: 1px solid #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Распределить элементы по краям */
+  align-items: center; /* Выровнять по центру по вертикали */
+}
+
+.navbar-brand {
+  color: #7df9ff; /* Цвет для LIMINAL */
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-nav {
+  list-style: none; /* Убрать маркеры списка */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Сделать пункты горизонтальными */
+  gap: 25px; /* Промежуток между пунктами */
+}
+
+.navbar-nav li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease; /* Плавный переход цвета */
+}
+
+.navbar-nav li a:hover {
+  color: #7df9ff; /* Цвет при наведении */
+}
+
+/* Стили для MAIN CONTENT */
+.dashboard-content {
+  flex-grow: 1; /* Чтобы контент занимал все доступное пространство между шапкой и футером */
+  padding: 40px;
+  text-align: center; /* Центрировать текст, как на скриншоте */
+}
+
+.dashboard-content h1 {
+  color: #7df9ff; /* Цвет для "Dashboard" */
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.memory-section {
+  margin-top: 50px;
+}
+
+.memory-section h2 {
+  color: #7df9ff; /* Цвет для "Память" */
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.stats-box {
+  border: 1px solid #33cc99; /* Зеленая рамка для блока статистики */
+  padding: 20px;
+  margin: 30px auto; /* Центрировать блок */
+  max-width: 600px;
+  border-radius: 8px;
+  background-color: #0d0d0d;
+}
+
+/* Стили для FOOTER */
+.main-footer {
+  background-color: #1a1a1a; /* Темный фон для футера */
+  padding: 30px 40px;
+  border-top: 1px solid #333;
+  display: flex;
+  flex-wrap: wrap; /* Разрешить перенос колонок на новую строку */
+  justify-content: space-between; /* Распределить колонки */
+  gap: 30px; /* Промежуток между колонками */
+}
+
+.footer-column {
+  flex: 1; /* Каждая колонка будет занимать равное пространство */
+  min-width: 200px; /* Минимальная ширина колонки, чтобы не сжимались сильно */
+}
+
+.footer-column h3 {
+  color: #7df9ff; /* Цвет для заголовков колонок */
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  color: #ccc; /* Светло-серый цвет для ссылок */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #7df9ff;
+  text-decoration: underline;
+}
+
+.footer-column p {
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.footer-copyright {
+  width: 100%; /* Занимает всю ширину */
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #333; /* Отделение копирайта */
+  color: #888;
+  font-size: 0.9em;
+}
+
