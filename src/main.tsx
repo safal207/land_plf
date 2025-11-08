@@ -26,18 +26,30 @@ const getBasename = () => {
   return '/';
 };
 
-// Компонент для обработки hash навигации из 404.html
-function HashHandler() {
+// Компонент для обработки редиректа из 404.html
+function RedirectHandler() {
   const navigate = useNavigate();
   
   React.useEffect(() => {
-    // Если есть hash в URL (из 404.html редиректа), используем его как путь
-    if (window.location.hash && window.location.hash.startsWith('#')) {
-      const hashPath = window.location.hash.slice(1);
-      // Убираем query параметры из hash если они там есть
-      const path = hashPath.split('?')[0];
-      if (path && path !== window.location.pathname) {
-        navigate(path, { replace: true });
+    // Проверяем, есть ли сохраненный путь из 404.html
+    const savedPath = sessionStorage.getItem('redirectPath');
+    if (savedPath) {
+      sessionStorage.removeItem('redirectPath');
+      // Парсим путь
+      try {
+        const url = new URL(savedPath, window.location.origin);
+        const path = url.pathname;
+        // Если путь отличается от текущего, навигируем
+        if (path && path !== window.location.pathname) {
+          const search = url.search;
+          const hash = url.hash;
+          navigate(path + search + hash, { replace: true });
+        }
+      } catch (e) {
+        // Если не удалось распарсить, просто используем как путь
+        if (savedPath !== window.location.pathname) {
+          navigate(savedPath, { replace: true });
+        }
       }
     }
   }, [navigate]);
@@ -49,7 +61,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <LanguageProvider>
       <BrowserRouter basename={getBasename()}>
-        <HashHandler />
+        <RedirectHandler />
         <App />
       </BrowserRouter>
     </LanguageProvider>

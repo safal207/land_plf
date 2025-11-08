@@ -6,38 +6,24 @@
     <title>LIMINAL: Вход в ноосферу</title>
     <script>
       // GitHub Pages 404 redirect для SPA
-      // Редиректим на index.html с сохранением пути через hash
+      // Просто редиректим на index.html - роутер сам разберется с путем
       var l = window.location;
       var basePath = '/land_plf';
       
       // Проверяем, находимся ли мы на GitHub Pages
       if (l.hostname === 'safal207.github.io' || l.pathname.startsWith('/land_plf')) {
-        // Сохраняем текущий путь для роутера
-        var currentPath = l.pathname.replace(basePath, '') || '/';
+        // Редиректим на index.html с сохранением полного пути
         var redirectUrl = l.origin + basePath + '/index.html';
-        
-        // Если это не корневой путь и не index.html, добавляем его как hash
-        if (currentPath !== '/' && currentPath !== '/index.html') {
-          redirectUrl += '#' + currentPath;
-        }
-        
-        // Сохраняем query параметры
-        if (l.search) {
-          redirectUrl += (redirectUrl.includes('#') ? '&' : '#') + l.search.slice(1);
-        }
-        
+        // Сохраняем оригинальный путь и query параметры
+        var originalPath = l.pathname + (l.search ? l.search : '') + (l.hash ? l.hash : '');
+        // Сохраняем в sessionStorage для восстановления роутером
+        sessionStorage.setItem('redirectPath', originalPath);
         window.location.replace(redirectUrl);
       } else {
         // Локальная разработка
-        var localPath = l.pathname || '/';
-        var localRedirect = l.origin + '/index.html';
-        if (localPath !== '/' && localPath !== '/index.html') {
-          localRedirect += '#' + localPath;
-        }
-        if (l.search) {
-          localRedirect += (localRedirect.includes('#') ? '&' : '#') + l.search.slice(1);
-        }
-        window.location.replace(localRedirect);
+        var originalPath = l.pathname + (l.search ? l.search : '') + (l.hash ? l.hash : '');
+        sessionStorage.setItem('redirectPath', originalPath);
+        window.location.replace(l.origin + '/index.html');
       }
     </script>
   </head>
