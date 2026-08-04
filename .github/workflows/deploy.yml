@@ -37,11 +37,20 @@ jobs:
           VITE_BASE_URL: /land_plf/
           NODE_ENV: production
 
+      - name: Verify Referral Growth Engine assets
+        run: |
+          test -f dist/referral/index.html
+          test -f dist/referral/app.js
+          test -f dist/referral/styles.css
+          test -f dist/referral/extras.css
+          test -f dist/referral/privacy.html
+          test -f dist/referral/terms.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: './dist'
 
@@ -55,4 +64,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
