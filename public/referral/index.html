@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Find where your agency loses revenue between lead capture and payment, then receive a practical automation plan." />
+  <title>Agency Revenue Leak Score</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="nav shell">
+    <a class="brand" href="#top" aria-label="Referral Growth Engine home">
+      <span class="brand-mark">RGE</span>
+      <span>Referral Growth Engine</span>
+    </a>
+    <a class="button button-ghost" href="#diagnostic">Run the diagnostic</a>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">QA-led revenue automation for agencies</p>
+        <h1>How much money is leaking from your sales process?</h1>
+        <p class="lead">Answer 12 questions. Get your Revenue Leak Score, the three highest-risk gaps, and a practical 10-day automation plan.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#diagnostic">Get my score</a>
+          <a class="button button-secondary" href="#method">See the method</a>
+        </div>
+        <div class="trust-row" aria-label="What the diagnostic covers">
+          <span>Lead response</span><span>Follow-up</span><span>Booking</span><span>Attribution</span>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <p class="card-label">Example impact</p>
+        <div class="impact-number">+5 retained deals</div>
+        <p>When response time, follow-up and no-show recovery are fixed together, the same lead volume can produce more booked and paid clients.</p>
+        <small>No guaranteed outcomes. Your result depends on traffic quality, offer, execution and sales skill.</small>
+      </aside>
+    </section>
+
+    <section class="problem-band">
+      <div class="shell metrics-grid">
+        <article><strong>1</strong><span>lead source of truth</span></article>
+        <article><strong>&lt;5 min</strong><span>target first response</span></article>
+        <article><strong>7+</strong><span>structured follow-ups</span></article>
+        <article><strong>100%</strong><span>traceable handoffs</span></article>
+      </div>
+    </section>
+
+    <section id="diagnostic" class="section shell">
+      <div class="section-heading">
+        <p class="eyebrow">Free diagnostic</p>
+        <h2>Agency Revenue Leak Score</h2>
+        <p>Choose the answer closest to your current process. The tool runs locally in your browser.</p>
+      </div>
+
+      <form id="diagnosticForm" class="diagnostic-card" novalidate>
+        <div id="questions"></div>
+        <div class="contact-grid">
+          <label>
+            Your name
+            <input id="name" name="name" autocomplete="name" required placeholder="Alex" />
+          </label>
+          <label>
+            Work email
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="alex@agency.com" />
+          </label>
+          <label>
+            Company
+            <input id="company" name="company" autocomplete="organization" placeholder="Agency name" />
+          </label>
+          <label>
+            Monthly lead volume
+            <select id="leadVolume" name="leadVolume">
+              <option value="0-50">0–50</option>
+              <option value="51-200">51–200</option>
+              <option value="201-1000">201–1,000</option>
+              <option value="1000+">1,000+</option>
+            </select>
+          </label>
+        </div>
+        <label class="consent">
+          <input id="consent" type="checkbox" required />
+          <span>I agree to send my answers for a personalised review. I understand this is educational information, not a guarantee of revenue.</span>
+        </label>
+        <button class="button button-primary button-wide" type="submit">Calculate my score</button>
+        <p id="formError" class="form-error" role="alert"></p>
+      </form>
+
+      <section id="result" class="result-card hidden" aria-live="polite">
+        <div class="score-ring" id="scoreRing"><span id="scoreValue">0</span><small>/100</small></div>
+        <div>
+          <p class="eyebrow">Your result</p>
+          <h3 id="resultTitle">Revenue system status</h3>
+          <p id="resultSummary"></p>
+          <h4>Highest-priority leaks</h4>
+          <ol id="riskList"></ol>
+          <div class="result-actions">
+            <button id="copyPlan" class="button button-secondary" type="button">Copy action plan</button>
+            <a id="requestReview" class="button button-primary" href="#">Request a 10-day plan</a>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section id="method" class="section section-dark">
+      <div class="shell">
+        <div class="section-heading left">
+          <p class="eyebrow">The method</p>
+          <h2>We debug revenue like a production system</h2>
+        </div>
+        <div class="steps-grid">
+          <article><span>01</span><h3>Trace</h3><p>Map every transition from source to paid customer.</p></article>
+          <article><span>02</span><h3>Test</h3><p>Check response, routing, follow-up, booking and attribution.</p></article>
+          <article><span>03</span><h3>Automate</h3><p>Implement only the automations tied to a measurable bottleneck.</p></article>
+          <article><span>04</span><h3>Verify</h3><p>Compare CRM records, attribution data, commissions and actual payouts.</p></article>
+        </div>
+        <pre class="graph" aria-label="Causal revenue graph">Lead source → Response → Qualification → Booking → Attendance → Offer → Payment
+      ↓           ↓             ↓             ↓           ↓          ↓
+ Attribution   Speed SLA    Routing QA    Reminders   Recovery   Follow-up
+      └──────────────────── Evidence and measurement ────────────────────┘</pre>
+      </div>
+    </section>
+
+    <section class="section shell offer-grid">
+      <div>
+        <p class="eyebrow">Pilot offer</p>
+        <h2>AI Agency Revenue OS — 10-day implementation sprint</h2>
+        <p>For small agencies, consultants and education businesses that already generate leads but lose visibility and follow-up discipline.</p>
+      </div>
+      <ul class="check-list">
+        <li>Revenue process map and baseline metrics</li>
+        <li>One complete lead-to-booking automation</li>
+        <li>No-show and old-lead recovery sequence</li>
+        <li>Attribution and commission QA checklist</li>
+        <li>14-day measurement plan</li>
+      </ul>
+    </section>
+
+    <section class="disclosure shell">
+      <h2>Transparency</h2>
+      <p>Referral Growth Engine may receive compensation when a recommended platform is purchased through a partner link. Recommendations must remain based on fit, evidence and client outcomes—not commission size. Partner links will be clearly disclosed next to the relevant call to action.</p>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <span>© 2026 Referral Growth Engine</span>
+    <span>Built with a QA-first approach</span>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
